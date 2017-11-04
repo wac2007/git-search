@@ -9,8 +9,6 @@ import 'rxjs/add/operator/switchMap';
 
 @Injectable()
 export class UserSearchService {
-  private baseUrl: String = 'https://api.github.com/search/users';
-  private queryUrl: String = '?q=';
 
   constructor(private http: Http) { }
 
@@ -20,12 +18,16 @@ export class UserSearchService {
         .switchMap(term => this.searchUsers(term));
     }
 
+    getUserUrl(username) {
+      return `https://api.github.com/search/users?q=${username}`;
+    }
+
     searchUsers(username) {
       if (!username) {
         return [];
       }
       return this.http
-          .get(`${this.baseUrl}${this.queryUrl}${username}`)
+          .get(this.getUserUrl(username))
           .map(res => res.json());
     }
 
