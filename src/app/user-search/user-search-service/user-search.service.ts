@@ -21,6 +21,9 @@ export class UserSearchService {
     }
 
     searchUsers(username) {
+      if (!username) {
+        return [];
+      }
       return this.http
           .get(`${this.baseUrl}${this.queryUrl}${username}`)
           .map(res => res.json());
