@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { HttpModule, XHRBackend, Response, ResponseOptions } from '@angular/http';
+import { RouterTestingModule } from '@angular/router/testing';
 import { MockBackend } from '@angular/http/testing';
 
 import { UserSearchComponent } from '../user-search.component';
@@ -15,6 +16,7 @@ describe('UserSearchComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpModule,
+        RouterTestingModule,
       ],
       declarations: [
         UserSearchComponent,
