@@ -37,26 +37,34 @@ describe('UserViewComponent', () => {
     .compileComponents();
   }));
 
-  beforeEach(
-    inject([XHRBackend], (mockBackend) => {
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UserViewComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create',
+    inject([UserViewService, XHRBackend], (service: UserViewService, mockBackend) => {
       mockBackend.connections.subscribe((connection) => {
         connection.mockRespond(new Response(new ResponseOptions({
           body: JSON.stringify(userMock)
         })));
       });
-      fixture = TestBed.createComponent(UserViewComponent);
-      component = fixture.componentInstance;
       params.next({ username: 'wac2007' });
-      fixture.detectChanges();
+      expect(component).toBeTruthy();
     })
   );
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should profile info be visible', () => {
-    const profileSection = fixture.nativeElement.querySelector(PROFILE_SECTION_SELECTOR);
-    expect(profileSection.is(':visible')).toBeTruthy();
+    inject([UserViewService, XHRBackend], (service: UserViewService, mockBackend) => {
+      mockBackend.connections.subscribe((connection) => {
+        connection.mockRespond(new Response(new ResponseOptions({
+          body: JSON.stringify(userMock)
+        })));
+      });
+      params.next({ username: 'wac2007' });
+      const profileSection = fixture.nativeElement.querySelector(PROFILE_SECTION_SELECTOR);
+      expect(profileSection.is(':visible')).toBeTruthy();
+    });
   });
 });
