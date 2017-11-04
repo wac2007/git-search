@@ -5,6 +5,7 @@ import { Subject } from 'rxjs/Subject';
 
 import { UserSearchService } from './user-search.service';
 import { users as usersMock } from './githubUserMock';
+import { SEARCH_TERM } from './user-search-service.test-options';
 
 describe('UserSearchService', () => {
   beforeEach(() => {
@@ -30,7 +31,7 @@ describe('UserSearchService', () => {
         expect(usersList.items.length).toBe(usersList.length);
       });
 
-      subjectSearch.next('wac');
+      subjectSearch.next(SEARCH_TERM);
     })
   );
 });
