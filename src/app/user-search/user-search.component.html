@@ -7,7 +7,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let result of results | slice:0:resultDisplayLimit">
+    <tr *ngFor="let result of results | slice:0:resultDisplayLimit" [routerLink]="['/user', result.login]">
       <td><img [src]="result.avatar_url" [alt]="result.login" class="avatar"/></td>
       <td>{{ result.login }}</td>
     </tr>
