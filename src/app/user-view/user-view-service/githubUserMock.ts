@@ -20,7 +20,7 @@ const userMock = {
   'company': 'Tech 4',
   'blog': 'https://wac2007.github.io/profile/',
   'location': 'Rio de Janeiro',
-  'email': null,
+  'email': 'wac.almeida@gmail.com',
   'hireable': true,
   'bio': 'Code, Business and Games defines me.',
   'public_repos': 30,
