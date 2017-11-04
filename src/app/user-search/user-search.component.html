@@ -1,0 +1,15 @@
+<input class="input" (keyup)="searchTerm.next($event.target.value)" />
+<table class="table table--avatar" *ngIf="results">
+  <thead>
+    <tr>
+      <th></th>
+      <th>User</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let result of results | slice:0:resultDisplayLimit">
+      <td><img [src]="result.avatar_url" [alt]="result.login" class="avatar"/></td>
+      <td>{{ result.login }}</td>
+    </tr>
+  </tbody>
+</table>
