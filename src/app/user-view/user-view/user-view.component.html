@@ -1,0 +1,21 @@
+
+<div class="profile" *ngIf="userProfile">
+  <img [src]="userProfile.avatar_url" [alt]="userProfile.name">
+  <span>{{ userProfile.name }}</span>
+  <span><a [href]="userProfile.url" target="_blank">@{{ userProfile.login }}</a></span>
+  <p>{{ userProfile.bio }}</p>
+  <hr/>
+  <span>{{ userProfile.email }}</span>
+  <span>Followers: {{ userProfile.followers }}</span>
+  <span>Following: {{ userProfile.following }}</span>
+</div>
+<div class="repos" *ngIf="userRepos">
+  <h2>Repos</h2>
+  <ul>
+    <li *ngFor="let repo of userRepos">
+      {{ repo.name }}
+      Stars: {{ repo.stargazers_count }}
+      Watchers {{ repo.watchers}}
+    </li>
+  </ul>
+</div>
