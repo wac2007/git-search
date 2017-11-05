@@ -1,28 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="profile" *ngIf="userProfile">
+        <img class="profile__avatar" [src]="userProfile.avatar_url" [alt]="userProfile.name">
+        <h1 class="profile__title">{{ userProfile.name }}</h1>
+        <a class="profile__url" [href]="userProfile.html_url" target="_blank">@{{ userProfile.login }}</a>
+        <p class="profile__bio">{{ userProfile.bio }}</p>
+        <hr/>
+        <span class="profile__info" title="Email">
+          <fa class="profile__icon" [name]="'envelope'"></fa>
+          <a class="profile__url" href="mailto:{{ userProfile.email }}">{{ userProfile.email }}</a>
+        </span>
+        <span class="profile__info" title="Followers">
+          <fa class="profile__icon" [name]="'users'"></fa> {{ userProfile.followers }}
+        </span>
+        <span class="profile__info" title="Following">
+          <fa class="profile__icon" [name]="'eye'"></fa> {{ userProfile.following }}
+        </span>
+      </div>
+    </div>
 
-<div class="profile" *ngIf="userProfile">
-  <img [src]="userProfile.avatar_url" [alt]="userProfile.name">
-  <span>{{ userProfile.name }}</span>
-  <span><a [href]="userProfile.url" target="_blank">@{{ userProfile.login }}</a></span>
-  <p>{{ userProfile.bio }}</p>
-  <hr/>
-  <span>{{ userProfile.email }}</span>
-  <span>Followers: {{ userProfile.followers }}</span>
-  <span>Following: {{ userProfile.following }}</span>
-</div>
-<div class="repos" *ngIf="userRepos">
-  <select [(ngModel)]="sort" (ngModelChange)="getRepos()">
-    <option *ngFor="let sortItem of sortList" [ngValue]="sortItem.value">{{ sortItem.label }}</option>
-  </select>
-  <select [(ngModel)]="order" (ngModelChange)="getRepos()">
-    <option *ngFor="let orderItem of orderList" [ngValue]="orderItem.value">{{ orderItem.label }}</option>
-  </select>
-  <h2>Repos</h2>
-  <ul>
-    <li *ngFor="let repo of userRepos">
-      <a [routerLink]="['/repo', repo.owner.login, repo.name]">{{ repo.name }}</a>
-      Stars: {{ repo.stargazers_count }}
-      Watchers {{ repo.watchers}}
-      <a [href]="repo.html_url" target="_blank">View in Github</a>
-    </li>
-  </ul>
+    <div class="repos col-sm" *ngIf="userRepos">
+      <select [(ngModel)]="sort" (ngModelChange)="getRepos()">
+        <option *ngFor="let sortItem of sortList" [ngValue]="sortItem.value">{{ sortItem.label }}</option>
+      </select>
+      <select [(ngModel)]="order" (ngModelChange)="getRepos()">
+        <option *ngFor="let orderItem of orderList" [ngValue]="orderItem.value">{{ orderItem.label }}</option>
+      </select>
+      <h2>Repos</h2>
+      <ul>
+        <li *ngFor="let repo of userRepos">
+          <a [routerLink]="['/repo', repo.owner.login, repo.name]">{{ repo.name }}</a>
+          Stars: {{ repo.stargazers_count }}
+          Watchers {{ repo.watchers}}
+          <a [href]="repo.html_url" target="_blank">View in Github</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

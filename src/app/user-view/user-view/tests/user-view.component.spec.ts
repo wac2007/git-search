@@ -6,6 +6,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { UserViewRoutingModule } from '../../user-view-routing.module';
 import { Subject } from 'rxjs/Subject';
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
 import { UserViewComponent } from '../user-view.component';
 import { UserViewService } from '../../user-view-service/user-view.service';
@@ -25,6 +26,7 @@ describe('UserViewComponent', () => {
     params = new Subject<Params>();
     TestBed.configureTestingModule({
       imports: [
+        Angular2FontawesomeModule,
         FormsModule,
         HttpModule,
         RouterTestingModule,
