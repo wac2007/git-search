@@ -17,7 +17,9 @@ describe('UserProfileComponent', () => {
       imports: [
         Angular2FontawesomeModule,
       ],
-      declarations: [ UserProfileComponent ]
+      declarations: [
+        UserProfileComponent,
+      ]
     })
     .compileComponents();
   }));

@@ -13,32 +13,7 @@
           <option *ngFor="let orderItem of orderList" [ngValue]="orderItem.value">{{ orderItem.label }}</option>
         </select>
       </div>
-      <div class="repos" >
-        
-        <div class="row">
-          <div class="col-lg">
-            <div class="card" *ngFor="let repo of userRepos">
-              <div class="card-body">
-                <a class="card-title" [routerLink]="['/repo', repo.owner.login, repo.name]">{{ repo.name }}</a>
-                <p>{{ repo.description }}</p>
-                <span class="card-icon" title="Stars">
-                  <fa class="" [name]="'star'" [fw]=true></fa>
-                  {{ repo.stargazers_count }}
-                </span>
-                <span class="card-icon" title="Watchers">
-                  <fa class="" [name]="'eye'" [fw]=true></fa>
-                  {{ repo.watchers}}
-                </span>
-                <span class="card-icon" title="View in Github">
-                  <a class="external-link" [href]="repo.html_url" target="_blank">
-                    <fa class="" [name]="'external-link'" [fw]=true></fa>
-                  </a>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <app-user-repos [repoList]="userRepos"></app-user-repos>
     </div>
   </div>
 </div>

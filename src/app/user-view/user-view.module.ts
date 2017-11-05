@@ -7,6 +7,8 @@ import { UserViewService } from './user-view-service/user-view.service';
 import { UserViewComponent } from './user-view/user-view.component';
 import { UserViewRoutingModule } from './user-view-routing.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserReposComponent } from './user-repos/user-repos.component';
+import { UserRepoItemComponent } from './user-repo-item/user-repo-item.component';
 
 @NgModule({
   imports: [
@@ -17,7 +19,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
   ],
   declarations: [
     UserViewComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UserReposComponent,
+    UserRepoItemComponent
   ],
   providers: [
     UserViewService,

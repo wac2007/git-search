@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title">
+      <a class="card-title__link" [routerLink]="['/repo', repoItem.owner.login, repoItem.name]">{{ repoItem.name }}</a>
+    </h3>
+    <p>{{ repoItem.description }}</p>
+    <span class="card-icon" title="Stars">
+      <fa [name]="'star'" [fw]=true></fa>
+      {{ repoItem.stargazers_count }}
+    </span>
+    <span class="card-icon" title="Watchers">
+      <fa [name]="'eye'" [fw]=true></fa>
+      {{ repoItem.watchers}}
+    </span>
+    <span class="card-icon" title="View in Github">
+      <a class="external-link" [href]="repoItem.html_url" target="_blank">
+        <fa [name]="'external-link'" [fw]=true></fa>
+      </a>
+    </span>
+  </div>
+</div>

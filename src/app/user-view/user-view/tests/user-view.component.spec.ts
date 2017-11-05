@@ -9,12 +9,14 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
 
 import { UserViewComponent } from '../user-view.component';
 import { UserViewService } from '../../user-view-service/user-view.service';
+import { UserProfileComponent } from '../../user-profile/user-profile.component';
+import { UserReposComponent } from '../../user-repos/user-repos.component';
+import { UserRepoItemComponent } from '../../user-repo-item/user-repo-item.component';
 import { userMock } from '../../user-view-service/githubUserMock';
 import {
   PROFILE_SECTION_SELECTOR, REPOS_SECTION_SELECTOR, getMock,
   PARAM_USERNAME,
 } from './user-view.test-options';
-import { UserProfileComponent } from '../../user-profile/user-profile.component';
 
 
 
@@ -33,8 +35,10 @@ describe('UserViewComponent', () => {
         RouterTestingModule,
       ],
       declarations: [
-        UserViewComponent,
         UserProfileComponent,
+        UserRepoItemComponent,
+        UserReposComponent,
+        UserViewComponent,
       ],
       providers: [
         UserViewService,
