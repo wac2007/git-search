@@ -4,7 +4,8 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
 
 import { UserRepoItemComponent } from '../user-repo-item.component';
 import {
-  REPO_MOCK, TITLE_SELECTOR, STARS_SELECTOR, WATCHERS_SELECTOR, EXTERNAL_LINK_SELECTOR
+  REPO_MOCK, TITLE_SELECTOR, STARS_SELECTOR, WATCHERS_SELECTOR, EXTERNAL_LINK_SELECTOR,
+  DESCRIPTION_SELECTOR
 } from './user-repo-item.test-options';
 
 
@@ -38,6 +39,7 @@ describe('UserRepoItemComponent', () => {
       STARS_SELECTOR,
       WATCHERS_SELECTOR,
       EXTERNAL_LINK_SELECTOR,
+      DESCRIPTION_SELECTOR,
     ];
 
     fields.forEach((field) => {

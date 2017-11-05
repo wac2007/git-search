@@ -3,7 +3,9 @@
     <h3 class="card-title">
       <a class="card-title__link" [routerLink]="['/repo', repoItem.owner.login, repoItem.name]">{{ repoItem.name }}</a>
     </h3>
-    <p>{{ repoItem.description }}</p>
+    <p class="card-description">
+      {{ repoItem.description }}
+    </p>
     <span class="card-icon" title="Stars">
       <fa [name]="'star'" [fw]=true></fa>
       {{ repoItem.stargazers_count }}
