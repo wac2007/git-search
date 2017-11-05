@@ -1,0 +1,8 @@
+<div *ngIf="repoInfo">
+  <!-- nome, descrição, ,número de estrelas, linguagem e um link externo para a página do repositório no GitHub -->
+  <h1>{{ repoInfo.full_name }}</h1>
+  Stars: {{ repoInfo.stargazers_count }}
+  Description: {{ repoInfo.description }}
+  Language: {{ repoInfo.language }}
+  <button (click)="goBack()">Go Back</button>
+</div>
