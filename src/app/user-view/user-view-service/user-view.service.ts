@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 export const SORT_BY_STARS = 'stars';
 export const SORT_BY_NAME = 'full_name';
@@ -10,6 +10,8 @@ export const SORT_BY_PUSH = 'pushed';
 export const ORDER_ASC = 'asc';
 export const ORDER_DESC = 'desc';
 
+import { environment } from '../../../environments/environment';
+
 @Injectable()
 export class UserViewService {
 
@@ -19,15 +21,20 @@ export class UserViewService {
 
   getUserProfileData(username) {
     return this.http
-        .get(this.getUserProfileUrl(username))
+        .get(this.getUserProfileUrl(username), this.getHttpOptions())
         .map(res => res.json());
   }
 
   getUserReposData(username, sort, order) {
     return this.http
-        .get(this.getUserReposUrl(username, sort, order))
-        .map(res => res.json())
-        .map(res => this.order(res, sort, order));
+    .get(this.getUserReposUrl(username, sort, order), this.getHttpOptions())
+    .map(res => res.json())
+    .map(res => this.order(res, sort, order));
+  }
+
+  private getHttpOptions() {
+    const headers = new Headers({ 'Authorization': `token ${environment.githubToken}` });
+    return new RequestOptions({ headers: headers });
   }
 
   private getUserProfileUrl(username) {
