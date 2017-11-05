@@ -29,38 +29,20 @@ describe('UserProfileComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should have user name', () => {
-    const selector = fixture.nativeElement.querySelector(USERNAME_SELECTOR);
-    expect(selector).toBeTruthy();
-  });
+  it('should have listed fields', () => {
+    const fields = [
+      USERNAME_SELECTOR,
+      USER_PROFILE_LINK_SELECTOR,
+      FOLLOWERS_SELECTOR,
+      FOLLOWING_SELECTOR,
+      EMAIL_SELECTOR,
+      BIO_SELECTOR,
+      AVATAR_SELECTOR
+    ];
 
-  it('should have user external link', () => {
-    const selector = fixture.nativeElement.querySelector(USER_PROFILE_LINK_SELECTOR);
-    expect(selector).toBeTruthy();
-  });
-
-  it('should have user followers', () => {
-    const selector = fixture.nativeElement.querySelector(FOLLOWERS_SELECTOR);
-    expect(selector).toBeTruthy();
-  });
-
-  it('should have user following', () => {
-    const selector = fixture.nativeElement.querySelector(FOLLOWING_SELECTOR);
-    expect(selector).toBeTruthy();
-  });
-
-  it('should have user email', () => {
-    const selector = fixture.nativeElement.querySelector(EMAIL_SELECTOR);
-    expect(selector).toBeTruthy();
-  });
-
-  it('should have user bio', () => {
-    const selector = fixture.nativeElement.querySelector(BIO_SELECTOR);
-    expect(selector).toBeTruthy();
-  });
-
-  it('should have user avatar', () => {
-    const selector = fixture.nativeElement.querySelector(AVATAR_SELECTOR);
-    expect(selector).toBeTruthy();
+    fields.forEach((field) => {
+      const selector = fixture.nativeElement.querySelector(field);
+      expect(selector).toBeTruthy();
+    });
   });
 });
