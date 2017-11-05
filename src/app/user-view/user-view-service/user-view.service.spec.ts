@@ -2,9 +2,11 @@ import { TestBed, inject } from '@angular/core/testing';
 import { HttpModule, XHRBackend, Response, ResponseOptions } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 
-import { UserViewService } from './user-view.service';
+import { UserViewService, ORDER_ASC, SORT_BY_CREATE } from './user-view.service';
 import { userMock } from './githubUserMock';
 import { userReposMock } from './githubUserReposMock';
+import { USER_NAME } from './user-view-service.test-options';
+
 
 describe('UserViewService', () => {
   beforeEach(() => {
@@ -27,7 +29,7 @@ describe('UserViewService', () => {
         })));
       });
 
-      service.getUserProfileData('wac2007').subscribe((response) => {
+      service.getUserProfileData(USER_NAME).subscribe((response) => {
         expect(response.login).toBe(userMock.login);
       });
     })
@@ -41,7 +43,7 @@ describe('UserViewService', () => {
         })));
       });
 
-      service.getUserReposData('wac2007').subscribe((response) => {
+      service.getUserReposData(USER_NAME, SORT_BY_CREATE, ORDER_ASC).subscribe((response) => {
         expect(response.length).toBe(userReposMock.length);
       });
     })
