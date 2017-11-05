@@ -1,25 +1,44 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-3" *ngIf="userProfile">
       <app-user-profile [userProfile]="userProfile"></app-user-profile>
     </div>
-
-    <div class="repos col-sm" *ngIf="userRepos">
-      <select [(ngModel)]="sort" (ngModelChange)="getRepos()">
-        <option *ngFor="let sortItem of sortList" [ngValue]="sortItem.value">{{ sortItem.label }}</option>
-      </select>
-      <select [(ngModel)]="order" (ngModelChange)="getRepos()">
-        <option *ngFor="let orderItem of orderList" [ngValue]="orderItem.value">{{ orderItem.label }}</option>
-      </select>
-      <h2>Repos</h2>
-      <ul>
-        <li *ngFor="let repo of userRepos">
-          <a [routerLink]="['/repo', repo.owner.login, repo.name]">{{ repo.name }}</a>
-          Stars: {{ repo.stargazers_count }}
-          Watchers {{ repo.watchers}}
-          <a [href]="repo.html_url" target="_blank">View in Github</a>
-        </li>
-      </ul>
+    <div class="col-sm" *ngIf="userRepos">
+      <h2 class="repo-title">Repos</h2>
+      <div class="filters">
+        <select [(ngModel)]="sort" (ngModelChange)="getRepos()">
+          <option *ngFor="let sortItem of sortList" [ngValue]="sortItem.value">{{ sortItem.label }}</option>
+        </select>
+        <select [(ngModel)]="order" (ngModelChange)="getRepos()">
+          <option *ngFor="let orderItem of orderList" [ngValue]="orderItem.value">{{ orderItem.label }}</option>
+        </select>
+      </div>
+      <div class="repos" >
+        
+        <div class="row">
+          <div class="col-lg">
+            <div class="card" *ngFor="let repo of userRepos">
+              <div class="card-body">
+                <a class="card-title" [routerLink]="['/repo', repo.owner.login, repo.name]">{{ repo.name }}</a>
+                <p>{{ repo.description }}</p>
+                <span class="card-icon" title="Stars">
+                  <fa class="" [name]="'star'" [fw]=true></fa>
+                  {{ repo.stargazers_count }}
+                </span>
+                <span class="card-icon" title="Watchers">
+                  <fa class="" [name]="'eye'" [fw]=true></fa>
+                  {{ repo.watchers}}
+                </span>
+                <span class="card-icon" title="View in Github">
+                  <a class="external-link" [href]="repo.html_url" target="_blank">
+                    <fa class="" [name]="'external-link'" [fw]=true></fa>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
