@@ -6,6 +6,7 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
 import { UserViewService } from './user-view-service/user-view.service';
 import { UserViewComponent } from './user-view/user-view.component';
 import { UserViewRoutingModule } from './user-view-routing.module';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,10 @@ import { UserViewRoutingModule } from './user-view-routing.module';
     FormsModule,
     UserViewRoutingModule,
   ],
-  declarations: [UserViewComponent],
+  declarations: [
+    UserViewComponent,
+    UserProfileComponent
+  ],
   providers: [
     UserViewService,
   ]

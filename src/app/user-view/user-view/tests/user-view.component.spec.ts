@@ -4,7 +4,6 @@ import { MockBackend } from '@angular/http/testing';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { UserViewRoutingModule } from '../../user-view-routing.module';
 import { Subject } from 'rxjs/Subject';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
@@ -15,6 +14,8 @@ import {
   PROFILE_SECTION_SELECTOR, REPOS_SECTION_SELECTOR, getMock,
   PARAM_USERNAME,
 } from './user-view.test-options';
+import { UserProfileComponent } from '../../user-profile/user-profile.component';
+
 
 
 describe('UserViewComponent', () => {
@@ -30,10 +31,10 @@ describe('UserViewComponent', () => {
         FormsModule,
         HttpModule,
         RouterTestingModule,
-        UserViewRoutingModule,
       ],
       declarations: [
-        UserViewComponent
+        UserViewComponent,
+        UserProfileComponent,
       ],
       providers: [
         UserViewService,
