@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { UserSearchModule } from './user-search/user-search.module';
 import { UserViewModule } from './user-view/user-view.module';
 import { RepoViewModule } from './repo-view/repo-view.module';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { RepoViewModule } from './repo-view/repo-view.module';
     UserViewModule,
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

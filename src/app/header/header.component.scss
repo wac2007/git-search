@@ -1,0 +1,32 @@
+:host {
+  font-family: sans-serif;
+}
+
+.header {
+  width: 100%;
+  background-color: #aaa;
+  padding: 10px 0;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #000;
+}
+.navbar {
+  list-style: none;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+.navbar .navbar-item {
+  padding: .5rem .5rem .5rem 0;
+  margin-right: 2rem;
+}
+.navbar .navbar-title {
+  text-decoration: none;
+  color: #FFF;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
