@@ -1,7 +1,6 @@
-import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { Http } from '@angular/http';
 
 import { RepoViewService } from '../repo-view-service/repo-view.service';
 
@@ -14,16 +13,18 @@ import { RepoViewService } from '../repo-view-service/repo-view.service';
 export class RepoViewComponent {
   private repoFullName: String;
   private repoInfo;
+  private readmeTemplate: any;
 
   constructor(
     private route: ActivatedRoute,
     private repoViewService: RepoViewService,
-    private location: Location
+    private http: Http
   ) {
     this.route.params.subscribe((routeParams) => {
       this.repoFullName = `${routeParams.repoOwner}/${routeParams.repoName}`;
+      this.getRepoData();
+      this.getReadme();
     });
-    this.getRepoData();
   }
 
   private getRepoData() {
@@ -32,7 +33,14 @@ export class RepoViewComponent {
     });
   }
 
-  private goBack() {
-    this.location.back();
+  private getReadme() {
+    this.repoViewService.getRepoReadme(this.repoFullName).subscribe(
+      (repoContent) => {
+        this.readmeTemplate = repoContent;
+      },
+      (error) => {
+        this.readmeTemplate = '### No readme.md found in this repository';
+      }
+    );
   }
 }

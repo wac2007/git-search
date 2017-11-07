@@ -10,7 +10,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test --single-run",
+    "test": "ng test --single-run --env=test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -26,9 +26,11 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "angular2-fontawesome": "^0.9.3",
+    "angular2-markdown": "^1.6.0",
     "bootstrap": "^4.0.0-beta.2",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
+    "prismjs": "^1.8.4",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },

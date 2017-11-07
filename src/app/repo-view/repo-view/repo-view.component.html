@@ -1,8 +1,30 @@
-<div *ngIf="repoInfo">
-  <!-- nome, descrição, ,número de estrelas, linguagem e um link externo para a página do repositório no GitHub -->
-  <h1>{{ repoInfo.full_name }}</h1>
-  Stars: {{ repoInfo.stargazers_count }}
-  Description: {{ repoInfo.description }}
-  Language: {{ repoInfo.language }}
-  <button (click)="goBack()">Go Back</button>
+<div *ngIf="repoInfo" class="container">
+  <div *ngIf="repoInfo">
+    <h1 class="repo-title">
+      <a class="repo-link" [routerLink]="['/user', repoInfo.owner.login]">{{ repoInfo.owner.login }}</a> / 
+      {{ repoInfo.name }}
+    </h1>
+    <label class="repo-info" title="Stars">
+      <fa [name]="'star'"></fa> {{ repoInfo.stargazers_count }}
+    </label>
+    <label class="repo-info" title="Language">
+      <fa [name]="'file-code-o'"></fa> {{ repoInfo.language }}
+    </label>
+    <label class="repo-info" title="External Link">
+      <a class="repo-link" [href]="repoInfo.html_url" target="_blank">
+        <fa [name]="'external-link'"></fa>
+      </a> 
+    </label>
+    <p class="repo-description">
+      {{ repoInfo.description }}
+    </p>
+  </div>
+  <div class="card" *ngIf="readmeTemplate">
+    <div class="card-header">
+        <h2 class="card-title">Readme.md</h2>
+    </div>
+    <div class="card-body">
+      <markdown [data]="readmeTemplate"></markdown>
+    </div>
+  </div>
 </div>

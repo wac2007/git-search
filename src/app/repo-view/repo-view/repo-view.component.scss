@@ -1,0 +1,36 @@
+:host {
+  font-family: sans-serif;
+}
+
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 6px;
+  margin: 40px 0;
+}
+.card-header {
+  padding: 10px 20px;
+  background: #dedede;
+}
+.card-body {
+  padding: 5px 20px;
+}
+.card-title {
+  margin: 0;
+}
+
+.repo-title {
+  margin: 0 0 10px 0;
+}
+.repo-info:not(:last-child) {
+  margin-right: 10px;
+}
+.repo-description {
+  
+}
+.repo-link {
+  color: #5286ec;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
