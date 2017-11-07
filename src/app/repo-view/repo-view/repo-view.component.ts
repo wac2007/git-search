@@ -12,8 +12,8 @@ import { Repo } from '../../types/repo';
   styleUrls: ['./repo-view.component.scss']
 })
 export class RepoViewComponent {
+  public repoInfo: Repo;
   private repoFullName: String;
-  private repoInfo: Repo;
   private readmeTemplate: any;
 
   constructor(

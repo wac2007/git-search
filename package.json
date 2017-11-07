@@ -13,7 +13,7 @@
     "test": "ng test --single-run --env=test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --env=prod"
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {

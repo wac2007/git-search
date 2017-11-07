@@ -11,8 +11,8 @@ import { sortList, orderList } from './order-options';
 export class UserRepoFiltersComponent implements OnInit {
   @Output() filterChanged: EventEmitter<Object> = new EventEmitter<Object>();
 
-  private sortList = sortList;
-  private orderList = orderList;
+  public sortList = sortList;
+  public orderList = orderList;
   private sort = SORT_BY_STARS;
   private order = ORDER_DESC;
 
