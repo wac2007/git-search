@@ -60,7 +60,7 @@ describe('UserViewComponent', () => {
   });
 
   it('should have profile section',
-    fakeAsync(inject([UserViewService, XHRBackend], (service: UserViewService, mockBackend) => {
+    fakeAsync(inject([XHRBackend], (mockBackend) => {
       mockBackend.connections.subscribe((connection) => {
         connection.mockRespond(new Response(new ResponseOptions({
           body: JSON.stringify(getMock(connection.request.url))
@@ -75,7 +75,7 @@ describe('UserViewComponent', () => {
   ));
 
   it('should have repo listing',
-    fakeAsync(inject([UserViewService, XHRBackend], (service: UserViewService, mockBackend) => {
+    fakeAsync(inject([XHRBackend], (mockBackend) => {
       mockBackend.connections.subscribe((connection) => {
         connection.mockRespond(new Response(new ResponseOptions({
           body: JSON.stringify(getMock(connection.request.url))
