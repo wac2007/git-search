@@ -1,4 +1,4 @@
-const userMock = {
+export const userMock = {
   'login': 'wac2007',
   'id': 1892294,
   'avatar_url': 'https://avatars0.githubusercontent.com/u/1892294?v=4',
@@ -29,8 +29,4 @@ const userMock = {
   'following': 7,
   'created_at': '2012-06-26T02:21:57Z',
   'updated_at': '2017-10-11T19:47:05Z'
-};
-
-export {
-  userMock
 };

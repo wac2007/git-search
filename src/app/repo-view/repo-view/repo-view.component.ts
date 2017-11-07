@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
 
 import { RepoViewService } from '../repo-view-service/repo-view.service';
+import { Repo } from '../../types/repo';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { RepoViewService } from '../repo-view-service/repo-view.service';
 })
 export class RepoViewComponent {
   private repoFullName: String;
-  private repoInfo;
+  private repoInfo: Repo;
   private readmeTemplate: any;
 
   constructor(

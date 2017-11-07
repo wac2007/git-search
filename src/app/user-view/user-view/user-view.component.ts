@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { UserViewService} from '../user-view-service/user-view.service';
+import { Repo } from '../../types/repo';
+import { User } from '../../types/user';
 
 
 @Component({
@@ -11,8 +13,8 @@ import { UserViewService} from '../user-view-service/user-view.service';
 })
 export class UserViewComponent {
   private username;
-  private userProfile: Object;
-  private userRepos: Array<Object>;
+  public userProfile: User;
+  public userRepos: Array<Repo>;
 
   constructor(
     private userViewService: UserViewService,
