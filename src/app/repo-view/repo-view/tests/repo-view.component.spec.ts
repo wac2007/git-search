@@ -6,8 +6,7 @@ import { MarkdownModule } from 'angular2-markdown';
 
 import { RepoViewComponent } from '../repo-view.component';
 import { RepoViewService } from '../../repo-view-service/repo-view.service';
-import { COMPONENTS_SELECTORS } from './repo-view.test-options';
-import { repoMock } from '../../repo-view-service/repoMock';
+import { COMPONENTS_SELECTORS, repoMock } from './repo-view.test-options';
 
 
 describe('RepoViewComponent', () => {
