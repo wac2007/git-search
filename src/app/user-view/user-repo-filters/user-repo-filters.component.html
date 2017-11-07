@@ -1,0 +1,17 @@
+<div class="filters">
+  <h3 class="filters__title">Filters</h3>
+  <h4 class="filters__subtitle">Sort By</h4>
+  <div class="radio-group" *ngFor="let sortItem of sortList">
+    <label class="radio-group__label">
+      <input class="radio-input" type="radio" name="sort" [(ngModel)]="sort" [value]="sortItem.value" (ngModelChange)="updateFilters()">
+      {{ sortItem.label }}
+    </label>
+  </div>
+  <h4 class="filters__subtitle">Direction</h4>
+  <div class="radio-group" *ngFor="let orderItem of orderList">
+    <label class="radio-group__label">
+      <input class="radio-input" type="radio" name="order" [(ngModel)]="order" [value]="orderItem.value" (ngModelChange)="updateFilters()">
+      {{ orderItem.label }}
+    </label>
+  </div>
+</div>

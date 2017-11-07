@@ -9,6 +9,7 @@ import { UserViewRoutingModule } from './user-view-routing.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserReposComponent } from './user-repos/user-repos.component';
 import { UserRepoItemComponent } from './user-repo-item/user-repo-item.component';
+import { UserRepoFiltersComponent } from './user-repo-filters/user-repo-filters.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { UserRepoItemComponent } from './user-repo-item/user-repo-item.component
     UserViewComponent,
     UserProfileComponent,
     UserReposComponent,
-    UserRepoItemComponent
+    UserRepoItemComponent,
+    UserRepoFiltersComponent
   ],
   providers: [
     UserViewService,

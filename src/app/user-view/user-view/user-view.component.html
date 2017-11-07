@@ -3,17 +3,16 @@
     <div class="col-sm-3" *ngIf="userProfile">
       <app-user-profile [userProfile]="userProfile"></app-user-profile>
     </div>
-    <div class="col-sm" *ngIf="userRepos">
+    <div class="col-sm">
       <h2 class="repo-title">Repos</h2>
-      <div class="filters">
-        <select [(ngModel)]="sort" (ngModelChange)="getRepos()">
-          <option *ngFor="let sortItem of sortList" [ngValue]="sortItem.value">{{ sortItem.label }}</option>
-        </select>
-        <select [(ngModel)]="order" (ngModelChange)="getRepos()">
-          <option *ngFor="let orderItem of orderList" [ngValue]="orderItem.value">{{ orderItem.label }}</option>
-        </select>
+      <div class="row">
+        <div class="col-sm">
+          <app-user-repos *ngIf="userRepos" [repoList]="userRepos"></app-user-repos>
+        </div>
+        <div class="col-sm-2">
+          <app-user-repo-filters (filterChanged)="getRepos($event)"></app-user-repo-filters>
+        </div>
       </div>
-      <app-user-repos [repoList]="userRepos"></app-user-repos>
     </div>
   </div>
 </div>

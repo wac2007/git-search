@@ -3,7 +3,7 @@ import { userReposMock } from '../../user-view-service/githubUserReposMock';
 
 
 export const PROFILE_SECTION_SELECTOR = '.profile';
-export const REPOS_SECTION_SELECTOR = '.repos';
+export const REPOS_SECTION_SELECTOR = 'app-user-repos';
 export const PARAM_USERNAME = 'wac2007';
 
 const MOCK_PROFILE_URL = 'https://api.github.com/users/wac2007';
