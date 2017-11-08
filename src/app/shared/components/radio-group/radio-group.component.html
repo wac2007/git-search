@@ -1,0 +1,4 @@
+<div class="form-check" *ngFor="let radioItem of radioItems">
+  <app-radio-item [radioItem]="radioItem" [checked]="isChecked(radioItem)"
+    (clicked)="changed($event)"></app-radio-item>
+</div>
