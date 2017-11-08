@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { RepoViewComponent } from './repo-view/repo-view.component';
+import { RepoViewComponent } from './repo-view.component';
 
 
 export const routes: Routes = [

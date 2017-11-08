@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
 
-import { RepoViewService } from '../repo-view-service/repo-view.service';
-import { Repo } from '../../types/repo';
+import { RepoViewService } from './repo-view-service/repo-view.service';
+import { Repo } from '../types/repo';
 
 
 @Component({

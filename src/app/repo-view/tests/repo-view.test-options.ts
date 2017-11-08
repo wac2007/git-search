@@ -1,4 +1,4 @@
-import { repoMock } from '../../../shared/mocks/repoMock';
+import { repoMock } from '../../shared/mocks/repoMock';
 
 export const COMPONENTS_SELECTORS = [
   '.repo-title',

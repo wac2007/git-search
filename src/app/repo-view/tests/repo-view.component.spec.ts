@@ -5,9 +5,9 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
 import { MarkdownModule } from 'angular2-markdown';
 
 import { RepoViewComponent } from '../repo-view.component';
-import { RepoViewService } from '../../repo-view-service/repo-view.service';
+import { RepoViewService } from '../repo-view-service/repo-view.service';
 import { COMPONENTS_SELECTORS, repoMock } from './repo-view.test-options';
-import { RepoInfoComponent } from '../../repo-info/repo-info.component';
+import { RepoInfoComponent } from '../repo-info/repo-info.component';
 
 
 
