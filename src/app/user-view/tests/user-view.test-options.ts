@@ -1,5 +1,5 @@
-import { userMock } from '../../../shared/mocks/userMock';
-import { userReposMock } from '../../../shared/mocks/userRepoListMock';
+import { userMock } from '../../shared/mocks/userMock';
+import { userReposMock } from '../../shared/mocks/userRepoListMock';
 
 
 export const PROFILE_SECTION_SELECTOR = 'app-user-profile';

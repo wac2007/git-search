@@ -7,12 +7,12 @@ import { Subject } from 'rxjs/Subject';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
 import { UserViewComponent } from '../user-view.component';
-import { UserViewService } from '../../user-view-service/user-view.service';
-import { UserProfileComponent } from '../../user-profile/user-profile.component';
-import { UserReposComponent } from '../../user-repos/user-repos.component';
-import { UserRepoItemComponent } from '../../user-repo-item/user-repo-item.component';
-import { UserRepoFiltersComponent } from '../../user-repo-filters/user-repo-filters.component';
-import { ORDER_DESC, SORT_BY_STARS } from '../../order.constants';
+import { UserViewService } from '../user-view-service/user-view.service';
+import { UserProfileComponent } from '../user-profile/user-profile.component';
+import { UserReposComponent } from '../user-repos/user-repos.component';
+import { UserRepoItemComponent } from '../user-repo-item/user-repo-item.component';
+import { UserRepoFiltersComponent } from '../user-repo-filters/user-repo-filters.component';
+import { ORDER_DESC, SORT_BY_STARS } from '../order.constants';
 import {
   PROFILE_SECTION_SELECTOR, REPOS_SECTION_SELECTOR, USER_MOCK, USER_REPO_LIST_MOCK,
   PARAM_USERNAME, routeParams,
