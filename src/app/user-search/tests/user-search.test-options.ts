@@ -1,9 +1,6 @@
-const TABLE_SELECTOR = '.table-avatar';
-const RESULT_SELECTOR = '.table-avatar tbody tr';
-const INPUT_SELECTOR = '.form-control';
+import { usersMock } from '../../shared/mocks/userListMock';
 
-export {
-  TABLE_SELECTOR,
-  RESULT_SELECTOR,
-  INPUT_SELECTOR,
-};
+export const TABLE_SELECTOR = '.table-avatar';
+export const RESULT_SELECTOR = '.table-avatar tbody tr';
+export const INPUT_SELECTOR = '.form-control';
+export const USERS_MOCK = usersMock;

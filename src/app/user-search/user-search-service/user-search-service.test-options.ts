@@ -1,5 +1,4 @@
-const SEARCH_TERM = 'wac';
+import { usersMock } from '../../shared/mocks/userListMock';
 
-export {
-  SEARCH_TERM
-};
+export const SEARCH_TERM = 'wac';
+export const USERS_MOCK = usersMock;

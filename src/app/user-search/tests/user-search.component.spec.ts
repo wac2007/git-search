@@ -2,8 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpModule } from '@angular/http';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { TABLE_SELECTOR, RESULT_SELECTOR, INPUT_SELECTOR } from './user-search.test-options';
-import { users as usersMock } from '../user-search-service/githubUserMock';
+import { TABLE_SELECTOR, RESULT_SELECTOR, INPUT_SELECTOR, USERS_MOCK } from './user-search.test-options';
 import { UserSearchComponent } from '../user-search.component';
 import { UserSearchService } from '../user-search-service/user-search.service';
 import { SharedModule } from '../../shared/shared.module';
@@ -35,7 +34,7 @@ describe('UserSearchComponent', () => {
     fixture = TestBed.createComponent(UserSearchComponent);
     component = fixture.componentInstance;
     searchService = fixture.debugElement.injector.get(UserSearchService);
-    spyOn(searchService, 'searchUsers').and.returnValue(usersMock);
+    spyOn(searchService, 'searchUsers').and.returnValue(USERS_MOCK);
     spyOn(searchService, 'search').and.callThrough();
     fixture.detectChanges();
   });

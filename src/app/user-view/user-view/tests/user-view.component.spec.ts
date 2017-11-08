@@ -1,6 +1,5 @@
-import { async, ComponentFixture, TestBed, tick, inject, fakeAsync } from '@angular/core/testing';
-import { HttpModule, XHRBackend, Response, ResponseOptions } from '@angular/http';
-import { MockBackend } from '@angular/http/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -8,28 +7,27 @@ import { Subject } from 'rxjs/Subject';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
 import { UserViewComponent } from '../user-view.component';
-import {
-  UserViewService, ORDER_DESC, SORT_BY_STARS,
-} from '../../user-view-service/user-view.service';
+import { UserViewService } from '../../user-view-service/user-view.service';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { UserReposComponent } from '../../user-repos/user-repos.component';
 import { UserRepoItemComponent } from '../../user-repo-item/user-repo-item.component';
 import { UserRepoFiltersComponent } from '../../user-repo-filters/user-repo-filters.component';
-
-import { userMock } from '../../user-view-service/githubUserMock';
+import { ORDER_DESC, SORT_BY_STARS } from '../../order.constants';
 import {
-  PROFILE_SECTION_SELECTOR, REPOS_SECTION_SELECTOR, getMock,
-  PARAM_USERNAME,
+  PROFILE_SECTION_SELECTOR, REPOS_SECTION_SELECTOR, USER_MOCK, USER_REPO_LIST_MOCK,
+  PARAM_USERNAME, routeParams,
 } from './user-view.test-options';
 
 
 describe('UserViewComponent', () => {
   let component: UserViewComponent;
   let fixture: ComponentFixture<UserViewComponent>;
-  let params: Subject<Params>;
+  let paramProvider: Subject<Params>;
+  let userViewService: UserViewService;
+  let routeService: ActivatedRoute;
 
   beforeEach(async(() => {
-    params = new Subject<Params>();
+    paramProvider = new Subject<Params>();
     TestBed.configureTestingModule({
       imports: [
         Angular2FontawesomeModule,
@@ -46,8 +44,7 @@ describe('UserViewComponent', () => {
       ],
       providers: [
         UserViewService,
-        { provide: ActivatedRoute, useValue: { params: params }},
-        { provide: XHRBackend, useClass: MockBackend },
+        { provide: ActivatedRoute, useValue: { params: paramProvider }}
       ]
     })
     .compileComponents();
@@ -56,40 +53,44 @@ describe('UserViewComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(UserViewComponent);
     component = fixture.componentInstance;
+    paramProvider.next(routeParams);
+    userViewService = fixture.debugElement.injector.get(UserViewService);
+    routeService = fixture.debugElement.injector.get(ActivatedRoute);
+    spyOn(userViewService, 'getUserProfileData').and.returnValue(USER_MOCK);
+    spyOn(userViewService, 'getUserReposData').and.returnValue(USER_REPO_LIST_MOCK);
     fixture.detectChanges();
   });
 
-  it('should have profile section',
-    fakeAsync(inject([XHRBackend], (mockBackend) => {
-      mockBackend.connections.subscribe((connection) => {
-        connection.mockRespond(new Response(new ResponseOptions({
-          body: JSON.stringify(getMock(connection.request.url))
-        })));
-      });
-      params.next({ username: PARAM_USERNAME });
-      tick();
-      fixture.detectChanges();
-      const profileSection = fixture.nativeElement.querySelector(PROFILE_SECTION_SELECTOR);
-      expect(profileSection).toBeTruthy();
-    })
-  ));
+  it('should be created', () => {
+    expect(component).toBeTruthy();
+  });
 
-  it('should have repo listing',
-    fakeAsync(inject([XHRBackend], (mockBackend) => {
-      mockBackend.connections.subscribe((connection) => {
-        connection.mockRespond(new Response(new ResponseOptions({
-          body: JSON.stringify(getMock(connection.request.url))
-        })));
+  describe('UserViewComponent: Basic Info', () => {
+    it('should have profile section', () => {
+      routeService.params.subscribe(() => {
+        const profileSection = fixture.nativeElement.querySelector(PROFILE_SECTION_SELECTOR);
+        expect(profileSection).toBeTruthy();
       });
-      params.next({ username: PARAM_USERNAME });
-      component.getRepos({
-        order: ORDER_DESC,
-        sort: SORT_BY_STARS,
+    });
+    it('should have repo list section', () => {
+      routeService.params.subscribe(() => {
+        const reposSection = fixture.nativeElement.querySelector(REPOS_SECTION_SELECTOR);
+        expect(reposSection).toBeTruthy();
       });
-      tick();
-      fixture.detectChanges();
-      const reposSection = fixture.nativeElement.querySelector(REPOS_SECTION_SELECTOR);
-      expect(reposSection).toBeTruthy();
-    })
-  ));
+    });
+  });
+
+  describe('UserViewComponent: Behavior', () => {
+    it('should have the right route params', () => {
+      routeService.params.subscribe((params) => {
+        expect(params.username).toBe(routeParams.username);
+      });
+    });
+    it('should call UserViewService function onInit', () => {
+      routeService.params.subscribe(() => {
+        expect(userViewService.getUserProfileData).toHaveBeenCalled();
+        expect(userViewService.getUserReposData).toHaveBeenCalled();
+      });
+    });
+  });
 });

@@ -4,8 +4,7 @@ import { MockBackend } from '@angular/http/testing';
 import { Subject } from 'rxjs/Subject';
 
 import { UserSearchService } from './user-search.service';
-import { users as usersMock } from './githubUserMock';
-import { SEARCH_TERM } from './user-search-service.test-options';
+import { SEARCH_TERM, USERS_MOCK } from './user-search-service.test-options';
 
 describe('UserSearchService', () => {
   beforeEach(() => {
@@ -22,7 +21,7 @@ describe('UserSearchService', () => {
     fakeAsync(inject([UserSearchService, XHRBackend], (userSearchService, mockBackend) => {
       mockBackend.connections.subscribe((connection) => {
         connection.mockRespond(new Response(new ResponseOptions({
-          body: JSON.stringify(usersMock)
+          body: JSON.stringify(USERS_MOCK)
         })));
       });
 

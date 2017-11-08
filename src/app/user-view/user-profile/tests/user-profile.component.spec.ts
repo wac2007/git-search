@@ -3,7 +3,7 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
 
 import { UserProfileComponent } from '../user-profile.component';
 import {
-  USER_PROFILE, USERNAME_SELECTOR, USER_PROFILE_LINK_SELECTOR, FOLLOWERS_SELECTOR,
+  USER_PROFILE_MOCK, USERNAME_SELECTOR, USER_PROFILE_LINK_SELECTOR, FOLLOWERS_SELECTOR,
   FOLLOWING_SELECTOR, EMAIL_SELECTOR, BIO_SELECTOR, AVATAR_SELECTOR
 } from './user-profile.test-options';
 
@@ -27,7 +27,7 @@ describe('UserProfileComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(UserProfileComponent);
     component = fixture.componentInstance;
-    component.userProfile = USER_PROFILE;
+    component.userProfile = USER_PROFILE_MOCK;
     fixture.detectChanges();
   });
 

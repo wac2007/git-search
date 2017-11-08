@@ -1,4 +1,4 @@
-import { userReposMock } from '../../user-view-service/githubUserReposMock';
+import { userReposMock } from '../../../shared/mocks/userRepoListMock';
 
 export const REPO_MOCK = userReposMock[0];
 

@@ -1,7 +1,7 @@
 import {
   ORDER_ASC, ORDER_DESC, SORT_BY_STARS, SORT_BY_CREATE, SORT_BY_NAME,
   SORT_BY_PUSH, SORT_BY_UPDATE
-} from '../user-view-service/user-view.service';
+} from '../order.constants';
 
 export const sortList = [
   {

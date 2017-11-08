@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import { ORDER_DESC, SORT_BY_STARS } from '../user-view-service/user-view.service';
+import { ORDER_DESC, SORT_BY_STARS } from '../order.constants';
 import { sortList, orderList } from './order-options';
 
 @Component({

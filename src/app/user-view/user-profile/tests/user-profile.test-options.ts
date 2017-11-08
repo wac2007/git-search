@@ -1,7 +1,7 @@
-import { userMock } from '../../user-view-service/githubUserMock';
+import { userMock } from '../../../shared/mocks/userMock';
 
 
-export const USER_PROFILE = userMock;
+export const USER_PROFILE_MOCK = userMock;
 
 export const USERNAME_SELECTOR = '.profile__title';
 export const USER_PROFILE_LINK_SELECTOR = '.profile__url';

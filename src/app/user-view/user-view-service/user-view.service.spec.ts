@@ -2,10 +2,9 @@ import { TestBed, inject } from '@angular/core/testing';
 import { HttpModule, XHRBackend, Response, ResponseOptions } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 
-import { UserViewService, ORDER_ASC, SORT_BY_CREATE } from './user-view.service';
-import { userMock } from './githubUserMock';
-import { userReposMock } from './githubUserReposMock';
-import { USER_NAME } from './user-view-service.test-options';
+import { UserViewService } from './user-view.service';
+import { USER_NAME, USER_MOCK, USER_REPO_LIST_MOCK } from './user-view-service.test-options';
+import { ORDER_ASC, SORT_BY_CREATE } from '../order.constants';
 
 
 describe('UserViewService', () => {
@@ -25,12 +24,12 @@ describe('UserViewService', () => {
     inject([UserViewService, XHRBackend], (service: UserViewService, mockBackend) => {
       mockBackend.connections.subscribe((connection) => {
         connection.mockRespond(new Response(new ResponseOptions({
-          body: JSON.stringify(userMock)
+          body: JSON.stringify(USER_MOCK)
         })));
       });
 
       service.getUserProfileData(USER_NAME).subscribe((response) => {
-        expect(response.login).toBe(userMock.login);
+        expect(response.login).toBe(USER_MOCK.login);
       });
     })
   );
@@ -39,12 +38,12 @@ describe('UserViewService', () => {
     inject([UserViewService, XHRBackend], (service: UserViewService, mockBackend) => {
       mockBackend.connections.subscribe((connection) => {
         connection.mockRespond(new Response(new ResponseOptions({
-          body: JSON.stringify(userReposMock)
+          body: JSON.stringify(USER_REPO_LIST_MOCK)
         })));
       });
 
       service.getUserReposData(USER_NAME, SORT_BY_CREATE, ORDER_ASC).subscribe((response) => {
-        expect(response.length).toBe(userReposMock.length);
+        expect(response.length).toBe(USER_REPO_LIST_MOCK.length);
       });
     })
   );

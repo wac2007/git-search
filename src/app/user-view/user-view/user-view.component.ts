@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { UserViewService} from '../user-view-service/user-view.service';
+import { UserViewService } from '../user-view-service/user-view.service';
 import { Repo } from '../../types/repo';
 import { User } from '../../types/user';
 
@@ -11,7 +11,7 @@ import { User } from '../../types/user';
   templateUrl: './user-view.component.html',
   styleUrls: ['./user-view.component.scss']
 })
-export class UserViewComponent {
+export class UserViewComponent implements OnInit {
   private username;
   public userProfile: User;
   public userRepos: Array<Repo>;
@@ -19,7 +19,9 @@ export class UserViewComponent {
   constructor(
     private userViewService: UserViewService,
     private route: ActivatedRoute
-  ) {
+  ) { }
+
+  ngOnInit() {
     this.route.params.subscribe((routeParams) => {
       this.username = routeParams.username;
       this.getUserData();
