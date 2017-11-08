@@ -2,7 +2,7 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LoadingComponent } from './loading/loading.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 
 @NgModule({
