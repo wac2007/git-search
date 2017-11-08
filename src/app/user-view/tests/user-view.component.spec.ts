@@ -13,6 +13,9 @@ import { UserReposComponent } from '../user-repos/user-repos.component';
 import { UserRepoItemComponent } from '../user-repo-item/user-repo-item.component';
 import { UserRepoFiltersComponent } from '../user-repo-filters/user-repo-filters.component';
 import { ORDER_DESC, SORT_BY_STARS } from '../order.constants';
+import { RadioGroupComponent } from '../../shared/components/radio-group/radio-group.component';
+import { RadioItemComponent } from '../../shared/components/radio-group/radio-item/radio-item.component';
+
 import {
   PROFILE_SECTION_SELECTOR, REPOS_SECTION_SELECTOR, USER_MOCK, USER_REPO_LIST_MOCK,
   PARAM_USERNAME, routeParams,
@@ -36,6 +39,8 @@ describe('UserViewComponent', () => {
         RouterTestingModule,
       ],
       declarations: [
+        RadioGroupComponent,
+        RadioItemComponent,
         UserProfileComponent,
         UserRepoFiltersComponent,
         UserRepoItemComponent,

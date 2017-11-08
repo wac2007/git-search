@@ -2,8 +2,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 
 import { UserRepoFiltersComponent } from '../user-repo-filters.component';
+import { RadioGroupComponent } from '../../../shared/components/radio-group/radio-group.component';
+import { RadioItemComponent } from '../../../shared/components/radio-group/radio-item/radio-item.component';
+
 import {
-  SORT_INPUT_SELECTOR, ORDER_INPUT_SELECTOR, SORT_INPUT_COUNT, ORDER_INPUT_COUNT, FILTERS,
+  RADIO_GROUP_SELECTOR, FILTERS, RADIO_GROUP_COUNT
 } from './user-repo-filters.test-options';
 
 
@@ -17,6 +20,8 @@ describe('UserRepoFiltersComponent', () => {
         FormsModule,
       ],
       declarations: [
+        RadioGroupComponent,
+        RadioItemComponent,
         UserRepoFiltersComponent
       ]
     })
@@ -34,13 +39,9 @@ describe('UserRepoFiltersComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should create 5 sort inputs', () => {
-    const sortInputs = fixture.nativeElement.querySelectorAll(SORT_INPUT_SELECTOR);
-    expect(sortInputs.length).toBe(SORT_INPUT_COUNT);
+  it('should create 2 radio groups', () => {
+    const radioGroups = fixture.nativeElement.querySelectorAll(RADIO_GROUP_SELECTOR);
+    expect(radioGroups.length).toBe(RADIO_GROUP_COUNT);
   });
 
-  it('should create 2 order inputs', () => {
-    const orderInputs = fixture.nativeElement.querySelectorAll(ORDER_INPUT_SELECTOR);
-    expect(orderInputs.length).toBe(ORDER_INPUT_COUNT);
-  });
 });

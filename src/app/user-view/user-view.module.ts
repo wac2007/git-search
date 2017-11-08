@@ -10,12 +10,15 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserReposComponent } from './user-repos/user-repos.component';
 import { UserRepoItemComponent } from './user-repo-item/user-repo-item.component';
 import { UserRepoFiltersComponent } from './user-repo-filters/user-repo-filters.component';
+import { SharedModule } from '../shared/shared.module';
+
 
 @NgModule({
   imports: [
     Angular2FontawesomeModule,
     CommonModule,
     FormsModule,
+    SharedModule,
     UserViewRoutingModule,
   ],
   declarations: [

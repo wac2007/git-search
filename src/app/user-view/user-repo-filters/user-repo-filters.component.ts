@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { sortList, orderList } from './order-options';
 import { OrderFilter } from '../order-filter';
+import { RadioItem } from '../../shared/components/radio-group/radio-item';
 
 
 @Component({
@@ -16,7 +17,9 @@ export class UserRepoFiltersComponent {
   public sortList = sortList;
   public orderList = orderList;
 
-  updateFilters() {
+  updateFilters(radioItem: RadioItem) {
+    const filterIndex = radioItem.group.toString();
+    this.filters[filterIndex] = radioItem.value;
     this.filterChanged.emit(this.filters);
   }
 

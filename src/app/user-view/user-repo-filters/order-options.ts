@@ -2,37 +2,18 @@ import {
   ORDER_ASC, ORDER_DESC, SORT_BY_STARS, SORT_BY_CREATE, SORT_BY_NAME,
   SORT_BY_PUSH, SORT_BY_UPDATE
 } from '../order.constants';
+import { RadioItem } from '../../shared/components/radio-group/radio-item';
+
 
 export const sortList = [
-  {
-    label: 'Stars',
-    value: SORT_BY_STARS
-  },
-  {
-    label: 'Created',
-    value: SORT_BY_CREATE
-  },
-  {
-    label: 'Name',
-    value: SORT_BY_NAME
-  },
-  {
-    label: 'Last Push',
-    value: SORT_BY_PUSH
-  },
-  {
-    label: 'Updated',
-    value: SORT_BY_UPDATE
-  },
+  new RadioItem('Stars', SORT_BY_STARS, 'sort'),
+  new RadioItem('Created', SORT_BY_CREATE, 'sort'),
+  new RadioItem('Name', SORT_BY_NAME, 'sort'),
+  new RadioItem('Last Push', SORT_BY_PUSH, 'sort'),
+  new RadioItem('Updated', SORT_BY_UPDATE, 'sort')
 ];
 
 export const orderList = [
-  {
-    label: 'Asc',
-    value: ORDER_ASC,
-  },
-  {
-    label: 'Desc',
-    value: ORDER_DESC
-  },
+  new RadioItem('Asc', ORDER_ASC, 'order'),
+  new RadioItem('Desc', ORDER_DESC, 'order'),
 ];

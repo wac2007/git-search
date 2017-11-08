@@ -1,17 +1,7 @@
 <div class="filters">
-  <h3 class="filters__title">Filters</h3>
-  <h4 class="filters__subtitle">Sort By</h4>
-  <div class="radio-group" *ngFor="let sortItem of sortList">
-    <label class="radio-group__label">
-      <input class="radio-input" type="radio" name="sort" [(ngModel)]="filters.sort" [value]="sortItem.value" (ngModelChange)="updateFilters()">
-      {{ sortItem.label }}
-    </label>
-  </div>
-  <h4 class="filters__subtitle">Direction</h4>
-  <div class="radio-group" *ngFor="let orderItem of orderList">
-    <label class="radio-group__label">
-      <input class="radio-input" type="radio" name="order" [(ngModel)]="filters.order" [value]="orderItem.value" (ngModelChange)="updateFilters()">
-      {{ orderItem.label }}
-    </label>
-  </div>
+  <h3 class="filters-title">Filters</h3>
+  <h4 class="filters-subtitle">Sort By</h4>
+  <app-radio-group [model]="filters.sort" [radioItems]="sortList" (modelChange)="updateFilters($event)"></app-radio-group>
+  <h4 class="filters-subtitle">Direction</h4>
+  <app-radio-group [model]="filters.order" [radioItems]="orderList" (modelChange)="updateFilters($event)"></app-radio-group>
 </div>
