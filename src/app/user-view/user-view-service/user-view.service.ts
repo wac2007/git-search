@@ -3,6 +3,8 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 
 import { environment } from '../../../environments/environment';
 import { ORDER_ASC, SORT_BY_STARS } from '../order.constants';
+import { OrderFilter } from '../order-filter';
+
 
 
 @Injectable()
@@ -18,11 +20,11 @@ export class UserViewService {
         .map(res => res.json());
   }
 
-  getUserReposData(username, sort, order) {
+  getUserReposData(username, filters: OrderFilter) {
     return this.http
-    .get(this.getUserReposUrl(username, sort, order), this.getHttpOptions())
+    .get(this.getUserReposUrl(username, filters.sort, filters.order), this.getHttpOptions())
     .map(res => res.json())
-    .map(res => this.order(res, sort, order));
+    .map(res => this.order(res, filters.sort, filters.order));
   }
 
   private getHttpOptions() {

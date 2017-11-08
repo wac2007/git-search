@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 
 import { UserRepoFiltersComponent } from '../user-repo-filters.component';
 import {
-  SORT_INPUT_SELECTOR, ORDER_INPUT_SELECTOR, SORT_INPUT_COUNT, ORDER_INPUT_COUNT
+  SORT_INPUT_SELECTOR, ORDER_INPUT_SELECTOR, SORT_INPUT_COUNT, ORDER_INPUT_COUNT, FILTERS,
 } from './user-repo-filters.test-options';
 
 
@@ -26,7 +26,12 @@ describe('UserRepoFiltersComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(UserRepoFiltersComponent);
     component = fixture.componentInstance;
+    component.filters = FILTERS;
     fixture.detectChanges();
+  });
+
+  it('should be created', () => {
+    expect(component).toBeTruthy();
   });
 
   it('should create 5 sort inputs', () => {

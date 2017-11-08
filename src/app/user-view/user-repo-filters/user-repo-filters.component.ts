@@ -1,30 +1,23 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { ORDER_DESC, SORT_BY_STARS } from '../order.constants';
 import { sortList, orderList } from './order-options';
+import { OrderFilter } from '../order-filter';
+
 
 @Component({
   selector: 'app-user-repo-filters',
   templateUrl: './user-repo-filters.component.html',
   styleUrls: ['./user-repo-filters.component.scss']
 })
-export class UserRepoFiltersComponent implements OnInit {
-  @Output() filterChanged: EventEmitter<Object> = new EventEmitter<Object>();
+export class UserRepoFiltersComponent {
+  @Input() filters: OrderFilter;
+  @Output() filterChanged: EventEmitter<OrderFilter> = new EventEmitter<OrderFilter>();
 
   public sortList = sortList;
   public orderList = orderList;
-  private sort = SORT_BY_STARS;
-  private order = ORDER_DESC;
 
   updateFilters() {
-    this.filterChanged.emit({
-      sort: this.sort,
-      order: this.order,
-    });
-  }
-
-  ngOnInit() {
-    this.updateFilters();
+    this.filterChanged.emit(this.filters);
   }
 
 }

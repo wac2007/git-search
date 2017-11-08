@@ -4,6 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { UserViewService } from '../user-view-service/user-view.service';
 import { Repo } from '../../types/repo';
 import { User } from '../../types/user';
+import { ORDER_DESC, SORT_BY_STARS } from '../order.constants';
+import { OrderFilter } from '../order-filter';
+
 
 
 @Component({
@@ -15,6 +18,8 @@ export class UserViewComponent implements OnInit {
   private username;
   public userProfile: User;
   public userRepos: Array<Repo>;
+  public filters: OrderFilter;
+  public sort: String;
 
   constructor(
     private userViewService: UserViewService,
@@ -22,9 +27,14 @@ export class UserViewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.filters = {
+      sort: SORT_BY_STARS,
+      order: ORDER_DESC
+    };
     this.route.params.subscribe((routeParams) => {
       this.username = routeParams.username;
       this.getUserData();
+      this.getRepos(this.filters);
     });
   }
 
@@ -35,8 +45,11 @@ export class UserViewComponent implements OnInit {
   }
 
   public getRepos(filters) {
-    this.userViewService.getUserReposData(this.username, filters.sort, filters.order).subscribe((userRepos) => {
-      this.userRepos = userRepos;
-    });
+    this.filters = filters;
+    this.userViewService
+      .getUserReposData(this.username, filters)
+      .subscribe((userRepos) => {
+        this.userRepos = userRepos;
+      });
   }
 }

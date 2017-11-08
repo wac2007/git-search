@@ -10,7 +10,7 @@
           <app-user-repos *ngIf="userRepos" [repoList]="userRepos"></app-user-repos>
         </div>
         <div class="col-sm-2">
-          <app-user-repo-filters (filterChanged)="getRepos($event)"></app-user-repo-filters>
+          <app-user-repo-filters [filters]="filters" (filterChanged)="getRepos($event)"></app-user-repo-filters>
         </div>
       </div>
     </div>

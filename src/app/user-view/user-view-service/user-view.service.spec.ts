@@ -3,8 +3,7 @@ import { HttpModule, XHRBackend, Response, ResponseOptions } from '@angular/http
 import { MockBackend } from '@angular/http/testing';
 
 import { UserViewService } from './user-view.service';
-import { USER_NAME, USER_MOCK, USER_REPO_LIST_MOCK } from './user-view-service.test-options';
-import { ORDER_ASC, SORT_BY_CREATE } from '../order.constants';
+import { USER_NAME, USER_MOCK, USER_REPO_LIST_MOCK, FILTERS_MOCK } from './user-view-service.test-options';
 
 
 describe('UserViewService', () => {
@@ -42,7 +41,7 @@ describe('UserViewService', () => {
         })));
       });
 
-      service.getUserReposData(USER_NAME, SORT_BY_CREATE, ORDER_ASC).subscribe((response) => {
+      service.getUserReposData(USER_NAME, FILTERS_MOCK).subscribe((response) => {
         expect(response.length).toBe(USER_REPO_LIST_MOCK.length);
       });
     })
