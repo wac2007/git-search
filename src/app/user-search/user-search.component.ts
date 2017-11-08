@@ -20,7 +20,6 @@ export class UserSearchComponent implements OnInit {
     this.searchWatch(this.searchTerm);
     this.searchService.search(this.searchTerm)
       .subscribe(results => {
-        console.log('resouts', results);
         this.results = results.items;
         this.loading = false;
       });
