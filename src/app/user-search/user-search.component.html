@@ -1,17 +1,23 @@
 <div class="container">
-  <input class="input" (keyup)="searchTerm.next($event.target.value)" placeholder="Search for an User..." />
-  <table class="table table--avatar" *ngIf="results">
+  <input class="form-control" (keyup)="searchTerm.next($event.target.value)" 
+    placeholder="Search for an User..." />
+  <table class="table table-avatar table-hover table-pointer" *ngIf="results">
     <thead>
       <tr>
         <th></th>
-        <th>User</th>
+        <th scope="row">User</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let result of results | slice:0:resultDisplayLimit" [routerLink]="['/user', result.login]">
-        <td><img [src]="result.avatar_url" [alt]="result.login" class="avatar"/></td>
-        <td>{{ result.login }}</td>
+        <td><img [src]="result.avatar_url" [alt]="result.login" class="image-avatar"/></td>
+        <td scope="row">{{ result.login }}</td>
+      </tr>
+      <tr *ngIf="!results || results.length < 1">
+        <td></td>
+        <td scope="row">No Users Found!</td>
       </tr>
     </tbody>
   </table>
+  <app-loading *ngIf="loading"></app-loading>
 </div>

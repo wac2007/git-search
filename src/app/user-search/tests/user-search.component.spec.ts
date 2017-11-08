@@ -1,29 +1,31 @@
-import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
-import { HttpModule, XHRBackend, Response, ResponseOptions } from '@angular/http';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpModule } from '@angular/http';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MockBackend } from '@angular/http/testing';
 
-import { UserSearchComponent } from '../user-search.component';
 import { TABLE_SELECTOR, RESULT_SELECTOR, INPUT_SELECTOR } from './user-search.test-options';
-import { UserSearchService } from '../user-search-service/user-search.service';
 import { users as usersMock } from '../user-search-service/githubUserMock';
+import { UserSearchComponent } from '../user-search.component';
+import { UserSearchService } from '../user-search-service/user-search.service';
+import { SharedModule } from '../../shared/shared.module';
+
 
 describe('UserSearchComponent', () => {
   let component: UserSearchComponent;
   let fixture: ComponentFixture<UserSearchComponent>;
+  let searchService: UserSearchService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         HttpModule,
         RouterTestingModule,
+        SharedModule,
       ],
       declarations: [
         UserSearchComponent,
       ],
       providers: [
         UserSearchService,
-        { provide: XHRBackend, useClass: MockBackend }
       ]
     })
     .compileComponents();
@@ -32,6 +34,9 @@ describe('UserSearchComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(UserSearchComponent);
     component = fixture.componentInstance;
+    searchService = fixture.debugElement.injector.get(UserSearchService);
+    spyOn(searchService, 'searchUsers').and.returnValue(usersMock);
+    spyOn(searchService, 'search').and.callThrough();
     fixture.detectChanges();
   });
 
@@ -39,21 +44,31 @@ describe('UserSearchComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should hide results when are nothing to display', () => {
-    const table = fixture.nativeElement.querySelector(TABLE_SELECTOR);
-    expect(table).toBeFalsy();
+  describe('UserSearchComponent: Basic Info', () => {
+    it('should have an search input', () => {
+      const input = fixture.nativeElement.querySelector(INPUT_SELECTOR);
+      expect(input).toBeTruthy();
+    });
+
   });
 
-  it('should render table results', () => {
-      component.results = usersMock.items;
+  describe('UserSearchComponent: Behaviour', () => {
+    it('should hide results when are nothing to display', () => {
+      const table = fixture.nativeElement.querySelector(TABLE_SELECTOR);
+      expect(table).toBeFalsy();
+    });
+
+    it('should render table results on input changes', () => {
+      component.searchTerm.next('wac');
       fixture.detectChanges();
-      const htmlResults = fixture.nativeElement.querySelectorAll(RESULT_SELECTOR);
-      const arrayResult = Array.from(htmlResults);
-      expect(arrayResult.length).toBe(component.resultDisplayLimit);
-  });
-
-  it('should have an search input', () => {
-    const input = fixture.nativeElement.querySelector(INPUT_SELECTOR);
-    expect(input).toBeTruthy();
+      searchService.search(component.searchTerm).subscribe(() => {
+        expect(searchService.search).toHaveBeenCalled();
+        expect(searchService.searchUsers).toHaveBeenCalled();
+        fixture.detectChanges();
+        const htmlResults = fixture.nativeElement.querySelectorAll(RESULT_SELECTOR);
+        const arrayResult = Array.from(htmlResults);
+        expect(arrayResult.length).toBe(component.resultDisplayLimit);
+      });
+    });
   });
 });

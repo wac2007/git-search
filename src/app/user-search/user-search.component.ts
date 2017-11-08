@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserSearchService } from './user-search-service/user-search.service';
 import { Subject } from 'rxjs/Subject';
 
@@ -7,16 +7,29 @@ import { Subject } from 'rxjs/Subject';
   templateUrl: './user-search.component.html',
   styleUrls: ['./user-search.component.scss']
 })
-export class UserSearchComponent {
+export class UserSearchComponent implements OnInit {
   results: Object;
   searchTerm = new Subject<string>();
   resultDisplayLimit = 5;
+  loading = false;
 
   constructor(public searchService: UserSearchService) {
+  }
+
+  ngOnInit() {
+    this.searchWatch(this.searchTerm);
     this.searchService.search(this.searchTerm)
       .subscribe(results => {
+        console.log('resouts', results);
         this.results = results.items;
+        this.loading = false;
       });
+  }
+
+  searchWatch(subject: Subject<any>) {
+    return subject.debounceTime(400)
+      .distinctUntilChanged()
+      .subscribe(() => this.loading = true);
   }
 
 }
