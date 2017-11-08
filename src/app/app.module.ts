@@ -7,12 +7,15 @@ import { UserSearchModule } from './user-search/user-search.module';
 import { UserViewModule } from './user-view/user-view.module';
 import { RepoViewModule } from './repo-view/repo-view.module';
 import { HeaderComponent } from './header/header.component';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   imports: [
     AppRoutingModule,
     BrowserModule,
     RepoViewModule,
+    SharedModule,
     UserSearchModule,
     UserViewModule,
   ],

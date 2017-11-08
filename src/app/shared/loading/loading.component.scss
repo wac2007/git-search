@@ -1,0 +1,15 @@
+.loading {
+  width: 100%;
+  position: absolute;
+  vertical-align: middle;
+  text-align: center;
+  left: 0;
+  top: 50%;
+}
+.loading span {
+  font-size: 1rem;
+  display: block;
+}
+.loading fa {
+  font-size: 3rem;
+}
