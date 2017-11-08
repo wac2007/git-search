@@ -7,6 +7,8 @@ import { MarkdownModule } from 'angular2-markdown';
 import { RepoViewComponent } from '../repo-view.component';
 import { RepoViewService } from '../../repo-view-service/repo-view.service';
 import { COMPONENTS_SELECTORS, repoMock } from './repo-view.test-options';
+import { RepoInfoComponent } from '../../repo-info/repo-info.component';
+
 
 
 describe('RepoViewComponent', () => {
@@ -23,7 +25,8 @@ describe('RepoViewComponent', () => {
         RouterTestingModule,
       ],
       declarations: [
-        RepoViewComponent
+        RepoViewComponent,
+        RepoInfoComponent,
       ],
       providers: [
         RepoViewService,

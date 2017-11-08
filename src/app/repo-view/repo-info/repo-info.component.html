@@ -1,0 +1,6 @@
+<label class="repo-info" [title]="title">
+  <a *ngIf="href" [href]="href" [target]="target">
+    <fa [name]="icon"></fa> {{ label }}
+  </a>
+  <fa *ngIf="!href" [name]="icon"></fa> {{ label }}
+</label>

@@ -34,7 +34,7 @@ export class UserViewService {
 
   private getHttpOptions() {
     const headers = new Headers({ 'Authorization': `token ${environment.githubToken}` });
-    return new RequestOptions({ headers: headers });
+    return new RequestOptions({ headers });
   }
 
   private getUserProfileUrl(username) {
@@ -65,9 +65,6 @@ export class UserViewService {
   }
 
   private order(userRepos, sort, order) {
-    if (sort === SORT_BY_STARS) {
-      return userRepos.sort(this.starsSorter(order));
-    }
-    return userRepos;
+    return sort === SORT_BY_STARS ? userRepos.sort(this.starsSorter(order)) : userRepos;
   }
 }
