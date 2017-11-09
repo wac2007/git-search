@@ -1,9 +1,16 @@
-<div class="header">
-  <div class="container">
-    <ul class="navbar">
-      <div class="navbar-item">
-        <a class="navbar-title" [routerLink]="['/']">Git Search</a>
+<header class="header">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-margin">
+    <div class="container">
+      <a class="navbar-brand mr-auto" [routerLink]="['/']">Git Search</a>
+      <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse navbar-controls">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search User" aria-label="Search">
+        </form>
       </div>
-    </ul>
-  </div>
-</div>
+    </div>
+  </nav>
+</header>
