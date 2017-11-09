@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
@@ -18,14 +19,23 @@ export class UserSearchService {
   ) { }
 
     search(terms: Observable<string>) {
-      return terms.debounceTime(400)
+      return terms
+        .debounceTime(400)
         .distinctUntilChanged()
         .switchMap(term => this.searchUsers(term));
     }
 
+    createEmptyResponse() {
+      const sub = new Subject();
+      window.setTimeout(() => {
+        sub.next({});
+      }, 100);
+      return sub;
+    }
+
     searchUsers(username) {
       if (!username) {
-        return [];
+        return this.createEmptyResponse();
       }
       return this.request
           .get('search/users', { q: username })
