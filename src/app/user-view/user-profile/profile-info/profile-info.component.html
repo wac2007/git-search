@@ -1,0 +1,5 @@
+<div class="profile-info" [title]="title">
+  <fa class="profile-icon" [name]="icon"></fa>
+  <a class="profile-url" [href]="url" *ngIf="url">{{ label }}</a>
+  <label class="profile-label" *ngIf="!url">{{ label }}</label>
+</div>

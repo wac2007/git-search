@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
+import { ProfileInfoComponent } from '../profile-info/profile-info.component';
 import { UserProfileComponent } from '../user-profile.component';
 import {
   USER_PROFILE_MOCK, USERNAME_SELECTOR, USER_PROFILE_LINK_SELECTOR, FOLLOWERS_SELECTOR,
@@ -18,6 +19,7 @@ describe('UserProfileComponent', () => {
         Angular2FontawesomeModule,
       ],
       declarations: [
+        ProfileInfoComponent,
         UserProfileComponent,
       ]
     })

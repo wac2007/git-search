@@ -11,6 +11,7 @@ import { UserReposComponent } from './user-repos/user-repos.component';
 import { UserRepoItemComponent } from './user-repo-item/user-repo-item.component';
 import { UserRepoFiltersComponent } from './user-repo-filters/user-repo-filters.component';
 import { SharedModule } from '../shared/shared.module';
+import { ProfileInfoComponent } from './user-profile/profile-info/profile-info.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { SharedModule } from '../shared/shared.module';
     UserProfileComponent,
     UserReposComponent,
     UserRepoItemComponent,
-    UserRepoFiltersComponent
+    UserRepoFiltersComponent,
+    ProfileInfoComponent
   ],
   providers: [
     UserViewService,

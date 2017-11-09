@@ -3,15 +3,13 @@
   <h1 class="profile-title">{{ userProfile.name }}</h1>
   <a class="profile-url" [href]="userProfile.html_url" target="_blank">@{{ userProfile.login }}</a>
   <p class="profile-bio" *ngIf="userProfile.bio">{{ userProfile.bio }}</p>
+
   <hr class="section-divider"/>
-  <span class="profile-info" title="Email" *ngIf="userProfile.email">
-    <fa class="profile-icon" [name]="'envelope'"></fa>
-    <a class="profile-url" href="mailto:{{ userProfile.email }}">{{ userProfile.email }}</a>
-  </span>
-  <span class="profile-info" title="Followers">
-    <fa class="profile-icon" [name]="'users'"></fa> {{ userProfile.followers }}
-  </span>
-  <span class="profile-info" title="Following">
-    <fa class="profile-icon" [name]="'eye'"></fa> {{ userProfile.following }}
-  </span>
+
+  <app-profile-info  *ngIf="userProfile.email" [title]="'Email'" [icon]="'envelope'" 
+    [label]="userProfile.email" [url]="'mailto:' + userProfile.email"></app-profile-info>
+  <app-profile-info  *ngIf="userProfile.followers" [title]="'Followers'" [icon]="'users'" 
+    [label]="userProfile.followers"></app-profile-info>
+  <app-profile-info  *ngIf="userProfile.following" [title]="'Following'" [icon]="'eye'" 
+    [label]="userProfile.following"></app-profile-info>
 </div>
