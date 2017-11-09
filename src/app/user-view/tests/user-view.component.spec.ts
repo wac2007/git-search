@@ -6,7 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Subject } from 'rxjs/Subject';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
-import { ProfileInfoComponent } from '../user-profile/profile-info/profile-info.component';
+import { InfoIconComponent } from '../info-icon/info-icon.component';
 import { RadioGroupComponent } from '../../shared/components/radio-group/radio-group.component';
 import { RadioItemComponent } from '../../shared/components/radio-group/radio-item/radio-item.component';
 import { RequestService } from '../../shared/services/request/request.service';
@@ -40,7 +40,7 @@ describe('UserViewComponent', () => {
         RouterTestingModule,
       ],
       declarations: [
-        ProfileInfoComponent,
+        InfoIconComponent,
         RadioGroupComponent,
         RadioItemComponent,
         UserProfileComponent,

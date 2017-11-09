@@ -1,0 +1,10 @@
+<div class="profile-info" [title]="title" [ngClass]="{'profile-info-inline': inline}">
+  <a class="profile-url" [href]="url" *ngIf="url" [target]="target">
+    <fa class="profile-icon" [name]="icon"></fa>
+    {{ label }}
+  </a>
+  <label class="profile-label" *ngIf="!url">
+    <fa class="profile-icon" [name]="icon"></fa>
+    {{ label }}
+  </label>
+</div>

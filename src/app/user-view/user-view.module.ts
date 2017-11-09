@@ -11,7 +11,7 @@ import { UserReposComponent } from './user-repos/user-repos.component';
 import { UserRepoItemComponent } from './user-repo-item/user-repo-item.component';
 import { UserRepoFiltersComponent } from './user-repo-filters/user-repo-filters.component';
 import { SharedModule } from '../shared/shared.module';
-import { ProfileInfoComponent } from './user-profile/profile-info/profile-info.component';
+import { InfoIconComponent } from './info-icon/info-icon.component';
 
 
 @NgModule({
@@ -23,12 +23,12 @@ import { ProfileInfoComponent } from './user-profile/profile-info/profile-info.c
     UserViewRoutingModule,
   ],
   declarations: [
+    InfoIconComponent,
     UserViewComponent,
     UserProfileComponent,
     UserReposComponent,
     UserRepoItemComponent,
     UserRepoFiltersComponent,
-    ProfileInfoComponent
   ],
   providers: [
     UserViewService,

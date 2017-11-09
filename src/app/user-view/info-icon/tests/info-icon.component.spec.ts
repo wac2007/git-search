@@ -1,11 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
-import { ProfileInfoComponent } from '../profile-info.component';
+import { InfoIconComponent } from '../info-icon.component';
+import { ICON_SELECTOR, LABEL_SELECTOR, TITLE_SELECTOR, LINK_SELECTOR,
+  CREATE_ICON, CREATE_TITLE, CREATE_LABEL, CREATE_URL
+} from './info-icon.test-options';
 
-describe('ProfileInfoComponent', () => {
-  let component: ProfileInfoComponent;
-  let fixture: ComponentFixture<ProfileInfoComponent>;
+describe('InfoIconComponent', () => {
+  let component: InfoIconComponent;
+  let fixture: ComponentFixture<InfoIconComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -13,22 +16,14 @@ describe('ProfileInfoComponent', () => {
         Angular2FontawesomeModule,
       ],
       declarations: [
-        ProfileInfoComponent
+        InfoIconComponent
       ]
     })
     .compileComponents();
   }));
 
-  const ICON_SELECTOR = '.fa';
-  const LABEL_SELECTOR = '.profile-label';
-  const TITLE_SELECTOR = '.profile-info';
-  const LINK_SELECTOR = '.profile-url';
-  const CREATE_ICON = 'eye';
-  const CREATE_TITLE = 'Eye';
-  const CREATE_LABEL = 'A big eye';
-  const CREATE_URL = 'mailto:test@test.com';
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfileInfoComponent);
+    fixture = TestBed.createComponent(InfoIconComponent);
     component = fixture.componentInstance;
     component.icon = CREATE_ICON;
     component.label = CREATE_LABEL;
@@ -40,7 +35,7 @@ describe('ProfileInfoComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('ProfileInfoComponent: Basic Render', () => {
+  describe('InfoIconComponent: Basic Render', () => {
     it('should render icon', () => {
       const htmlElement = fixture.nativeElement.querySelector(ICON_SELECTOR);
       expect(htmlElement.className).toContain(CREATE_ICON);
