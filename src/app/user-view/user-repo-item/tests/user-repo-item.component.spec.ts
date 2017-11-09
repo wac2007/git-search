@@ -3,6 +3,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
 import { UserRepoItemComponent } from '../user-repo-item.component';
+import { InfoIconComponent } from '../../info-icon/info-icon.component';
+
 import {
   REPO_MOCK, TITLE_SELECTOR, STARS_SELECTOR, WATCHERS_SELECTOR, EXTERNAL_LINK_SELECTOR,
   DESCRIPTION_SELECTOR
@@ -20,6 +22,7 @@ describe('UserRepoItemComponent', () => {
         RouterTestingModule,
       ],
       declarations: [
+        InfoIconComponent,
         UserRepoItemComponent
       ]
     })
@@ -33,18 +36,26 @@ describe('UserRepoItemComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should have listed fields', () => {
-    const fields = [
-      TITLE_SELECTOR,
-      STARS_SELECTOR,
-      WATCHERS_SELECTOR,
-      EXTERNAL_LINK_SELECTOR,
-      DESCRIPTION_SELECTOR,
-    ];
-
-    fields.forEach((field) => {
-      const selector = fixture.nativeElement.querySelector(field);
-      expect(selector).toBeTruthy();
+  describe('UserRepoItemComponent: Basic Render', () => {
+    it('should render title', () => {
+      const htmlElement = fixture.nativeElement.querySelector(TITLE_SELECTOR);
+      expect(htmlElement).toBeTruthy();
+    });
+    it('should render stars icon', () => {
+      const htmlElement = fixture.nativeElement.querySelector(STARS_SELECTOR);
+      expect(htmlElement).toBeTruthy();
+    });
+    it('should render watchers icon', () => {
+      const htmlElement = fixture.nativeElement.querySelector(WATCHERS_SELECTOR);
+      expect(htmlElement).toBeTruthy();
+    });
+    it('should render external link icon', () => {
+      const htmlElement = fixture.nativeElement.querySelector(EXTERNAL_LINK_SELECTOR);
+      expect(htmlElement).toBeTruthy();
+    });
+    it('should render description', () => {
+      const htmlElement = fixture.nativeElement.querySelector(DESCRIPTION_SELECTOR);
+      expect(htmlElement).toBeTruthy();
     });
   });
 });
