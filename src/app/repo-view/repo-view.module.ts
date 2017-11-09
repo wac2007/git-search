@@ -7,20 +7,21 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
 import { RepoViewComponent } from './repo-view.component';
 import { RepoViewService } from './repo-view-service/repo-view.service';
 import { RepoViewRoutingModule } from './repo-view-routing.module';
-import { RepoInfoComponent } from './repo-info/repo-info.component';
 import { ReadmeContainerComponent } from './readme-container/readme-container.component';
+import { SharedModule } from '../shared/shared.module';
+
 
 @NgModule({
   imports: [
     Angular2FontawesomeModule,
     CommonModule,
     HttpModule,
-    RepoViewRoutingModule,
     MarkdownModule.forRoot(),
+    RepoViewRoutingModule,
+    SharedModule,
   ],
   declarations: [
     RepoViewComponent,
-    RepoInfoComponent,
     ReadmeContainerComponent
   ],
   providers: [

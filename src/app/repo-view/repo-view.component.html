@@ -4,12 +4,12 @@
       <a class="repo-link" [routerLink]="['/user', repoInfo.owner.login]">{{ repoInfo.owner.login }}</a> / 
       {{ repoInfo.name }}
     </h1>
-    <app-repo-info [icon]="'star'" [title]="'Stars'" 
-      [label]="repoInfo.stargazers_count"></app-repo-info>
-    <app-repo-info [icon]="'file-code-o'" [title]="'Language'" 
-      [label]="repoInfo.language"></app-repo-info>
-    <app-repo-info [icon]="'external-link'" [title]="'External Link'" 
-      [target]="'_blank'" [href]="repoInfo.html_url"></app-repo-info>
+    <app-info-icon [icon]="'star'" [title]="'Stars'" [inline]=true
+      [label]="repoInfo.stargazers_count"></app-info-icon>
+    <app-info-icon [icon]="'file-code-o'" [title]="'Language'" [inline]=true
+      [label]="repoInfo.language"></app-info-icon>
+    <app-info-icon [icon]="'external-link'" [title]="'External Link'" [inline]=true
+      [target]="'_blank'" [url]="repoInfo.html_url"></app-info-icon>
     <p class="repo-description">
       {{ repoInfo.description }}
     </p>
