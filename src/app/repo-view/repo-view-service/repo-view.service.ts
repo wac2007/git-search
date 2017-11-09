@@ -18,8 +18,8 @@ export class RepoViewService {
   }
 
   getRepoReadme(repoName) {
-    return this.request
-      .get('', null, this.getRepoReadmeUrl(repoName))
+    return this.http
+      .get(this.getRepoReadmeUrl(repoName))
       .map(res => res.text());
   }
 
