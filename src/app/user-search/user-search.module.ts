@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { UserSearchComponent } from './user-search.component';
 import { UserSearchRoutingModule } from './user-search-routing.module';
 import { UserSearchService } from './user-search-service/user-search.service';
+import { SearchTableComponent } from './search-table/search-table.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { UserSearchService } from './user-search-service/user-search.service';
   ],
   declarations: [
     UserSearchComponent,
+    SearchTableComponent,
   ],
   providers: [
     UserSearchService

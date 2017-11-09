@@ -6,6 +6,7 @@ import { TABLE_SELECTOR, RESULT_SELECTOR, INPUT_SELECTOR, USERS_MOCK } from './u
 import { UserSearchComponent } from '../user-search.component';
 import { UserSearchService } from '../user-search-service/user-search.service';
 import { SharedModule } from '../../shared/shared.module';
+import { SearchTableComponent } from '../search-table/search-table.component';
 
 
 describe('UserSearchComponent', () => {
@@ -21,6 +22,7 @@ describe('UserSearchComponent', () => {
         SharedModule,
       ],
       declarations: [
+        SearchTableComponent,
         UserSearchComponent,
       ],
       providers: [

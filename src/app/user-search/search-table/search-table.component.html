@@ -1,0 +1,18 @@
+<table class="table table-avatar table-hover table-pointer">
+  <thead>
+    <tr>
+      <th></th>
+      <th scope="row">User</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of rowList | slice:0:resultDisplayLimit" [routerLink]="['/user', row.login]">
+      <td><img [src]="row.avatar_url" [alt]="row.login" class="image-avatar"/></td>
+      <td scope="row">{{ row.login }}</td>
+    </tr>
+    <tr *ngIf="!rowList || rowList.length < 1">
+      <td></td>
+      <td scope="row">{{ emptyText }}</td>
+    </tr>
+  </tbody>
+</table>

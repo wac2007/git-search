@@ -8,25 +8,28 @@ import { Subject } from 'rxjs/Subject';
   styleUrls: ['./user-search.component.scss']
 })
 export class UserSearchComponent implements OnInit {
-  results: Object;
-  searchTerm = new Subject<string>();
-  resultDisplayLimit = 5;
-  loading = false;
+  public userList: Object;
+  public searchTerm = new Subject<string>();
+  public resultDisplayLimit = 5;
+  public loading = false;
 
-  constructor(public searchService: UserSearchService) {
-  }
+  public emptyText = 'No Users Found!';
+  constructor(
+    public searchService: UserSearchService
+  ) { }
 
   ngOnInit() {
     this.searchWatch(this.searchTerm);
     this.searchService.search(this.searchTerm)
       .subscribe(results => {
-        this.results = results.items;
+        this.userList = results.items;
         this.loading = false;
       });
   }
 
   searchWatch(subject: Subject<any>) {
-    return subject.debounceTime(400)
+    return subject
+      .debounceTime(400)
       .distinctUntilChanged()
       .subscribe(() => this.loading = true);
   }
