@@ -1,7 +1,13 @@
 <div class="filters">
-  <h3 class="filters-title">Filters</h3>
-  <h4 class="filters-subtitle">Sort By</h4>
-  <app-radio-group [model]="filters.sort" [radioItems]="sortList" (modelChange)="updateFilters($event)"></app-radio-group>
-  <h4 class="filters-subtitle">Direction</h4>
-  <app-radio-group [model]="filters.order" [radioItems]="orderList" (modelChange)="updateFilters($event)"></app-radio-group>
+  <h2 class="filters-title">Filters</h2>
+  <div class="row">
+    <div class="col-6 col-lg-12">
+      <h3 class="filters-subtitle">Sort By</h3>
+      <app-radio-group [model]="filters.sort" [radioItems]="sortList" (modelChange)="updateFilters($event)"></app-radio-group>
+    </div>
+    <div class="col-6 col-lg-12">
+      <h3 class="filters-subtitle">Direction</h3>
+      <app-radio-group [model]="filters.order" [radioItems]="orderList" (modelChange)="updateFilters($event)"></app-radio-group>
+    </div>
+  </div>
 </div>
