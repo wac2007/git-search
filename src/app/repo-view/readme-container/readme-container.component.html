@@ -1,0 +1,8 @@
+<div class="card" *ngIf="readmeTemplate">
+  <div class="card-header">
+      Readme.md
+  </div>
+  <div class="card-body">
+    <markdown [data]="readmeTemplate"></markdown>
+  </div>
+</div>

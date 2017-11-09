@@ -8,6 +8,7 @@ import { RepoViewComponent } from './repo-view.component';
 import { RepoViewService } from './repo-view-service/repo-view.service';
 import { RepoViewRoutingModule } from './repo-view-routing.module';
 import { RepoInfoComponent } from './repo-info/repo-info.component';
+import { ReadmeContainerComponent } from './readme-container/readme-container.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { RepoInfoComponent } from './repo-info/repo-info.component';
   ],
   declarations: [
     RepoViewComponent,
-    RepoInfoComponent
+    RepoInfoComponent,
+    ReadmeContainerComponent
   ],
   providers: [
     RepoViewService,

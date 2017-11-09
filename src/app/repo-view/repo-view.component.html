@@ -14,12 +14,5 @@
       {{ repoInfo.description }}
     </p>
   </div>
-  <div class="card" *ngIf="readmeTemplate">
-    <div class="card-header">
-        <h2 class="card-title">Readme.md</h2>
-    </div>
-    <div class="card-body">
-      <markdown [data]="readmeTemplate"></markdown>
-    </div>
-  </div>
+  <app-readme-container [readmeTemplate]="readmeTemplate"></app-readme-container>
 </div>
