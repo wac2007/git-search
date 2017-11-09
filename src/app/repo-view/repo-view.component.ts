@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
 
@@ -11,7 +11,7 @@ import { Repo } from '../types/repo';
   templateUrl: './repo-view.component.html',
   styleUrls: ['./repo-view.component.scss']
 })
-export class RepoViewComponent {
+export class RepoViewComponent implements OnInit {
   public repoInfo: Repo;
   private repoFullName: String;
   private readmeTemplate: any;
@@ -20,7 +20,9 @@ export class RepoViewComponent {
     private route: ActivatedRoute,
     private repoViewService: RepoViewService,
     private http: Http
-  ) {
+  ) { }
+
+  ngOnInit() {
     this.route.params.subscribe((routeParams) => {
       this.repoFullName = `${routeParams.repoOwner}/${routeParams.repoName}`;
       this.getRepoData();
