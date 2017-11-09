@@ -6,11 +6,16 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 
+import { RequestService } from '../../shared/services/request/request.service';
+
 
 @Injectable()
 export class UserSearchService {
 
-  constructor(private http: Http) { }
+  constructor(
+    private http: Http,
+    private request: RequestService,
+  ) { }
 
     search(terms: Observable<string>) {
       return terms.debounceTime(400)
@@ -18,16 +23,12 @@ export class UserSearchService {
         .switchMap(term => this.searchUsers(term));
     }
 
-    getUserUrl(username) {
-      return `https://api.github.com/search/users?q=${username}`;
-    }
-
     searchUsers(username) {
       if (!username) {
         return [];
       }
-      return this.http
-          .get(this.getUserUrl(username))
+      return this.request
+          .get('search/users', { q: username })
           .map(res => res.json());
     }
 
