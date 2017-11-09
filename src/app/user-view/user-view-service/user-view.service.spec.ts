@@ -4,6 +4,7 @@ import { MockBackend } from '@angular/http/testing';
 
 import { UserViewService } from './user-view.service';
 import { USER_NAME, USER_MOCK, USER_REPO_LIST_MOCK, FILTERS_MOCK } from './user-view-service.test-options';
+import { RequestService } from '../../shared/services/request/request.service';
 
 
 describe('UserViewService', () => {
@@ -13,6 +14,7 @@ describe('UserViewService', () => {
         HttpModule,
       ],
       providers: [
+        RequestService,
         UserViewService,
         { provide: XHRBackend, useClass: MockBackend },
       ]

@@ -15,7 +15,7 @@ import { UserRepoFiltersComponent } from '../user-repo-filters/user-repo-filters
 import { ORDER_DESC, SORT_BY_STARS } from '../order.constants';
 import { RadioGroupComponent } from '../../shared/components/radio-group/radio-group.component';
 import { RadioItemComponent } from '../../shared/components/radio-group/radio-item/radio-item.component';
-
+import { RequestService } from '../../shared/services/request/request.service';
 import {
   PROFILE_SECTION_SELECTOR, REPOS_SECTION_SELECTOR, USER_MOCK, USER_REPO_LIST_MOCK,
   PARAM_USERNAME, routeParams,
@@ -48,6 +48,7 @@ describe('UserViewComponent', () => {
         UserViewComponent,
       ],
       providers: [
+        RequestService,
         UserViewService,
         { provide: ActivatedRoute, useValue: { params: paramProvider }}
       ]

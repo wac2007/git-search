@@ -4,7 +4,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { environment } from '../../../environments/environment';
 import { ORDER_ASC, SORT_BY_STARS } from '../order.constants';
 import { OrderFilter } from '../order-filter';
-
+import { RequestService } from '../../shared/services/request/request.service';
 
 
 @Injectable()
@@ -12,32 +12,31 @@ export class UserViewService {
 
   constructor(
     private http: Http,
+    private request: RequestService,
   ) { }
 
   getUserProfileData(username) {
-    return this.http
-        .get(this.getUserProfileUrl(username), this.getHttpOptions())
+    return this.request
+        .get(this.getUserProfileUri(username))
         .map(res => res.json());
   }
 
   getUserReposData(username, filters: OrderFilter) {
-    return this.http
-    .get(this.getUserReposUrl(username, filters.sort, filters.order), this.getHttpOptions())
+    return this.request
+    .get(this.getUserReposUri(username), {
+      sort: filters.sort,
+      direction: filters.order
+    })
     .map(res => res.json())
     .map(res => this.order(res, filters.sort, filters.order));
   }
 
-  private getHttpOptions() {
-    const headers = new Headers({ 'Authorization': `token ${environment.githubToken}` });
-    return new RequestOptions({ headers });
+  private getUserProfileUri(username) {
+    return `/users/${username}`;
   }
 
-  private getUserProfileUrl(username) {
-    return `https://api.github.com/users/${username}`;
-  }
-
-  private getUserReposUrl(username, sort, order) {
-    return `https://api.github.com/users/${username}/repos?sort=${sort}&direction=${order}`;
+  private getUserReposUri(username) {
+    return `/users/${username}/repos`;
   }
 
   private getSorterModifier(order: String) {
