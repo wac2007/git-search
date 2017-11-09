@@ -6,7 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Subject } from 'rxjs/Subject';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
-import { InfoIconComponent } from '../info-icon/info-icon.component';
+import { InfoIconComponent } from '../../shared/components/info-icon/info-icon.component';
 import { RadioGroupComponent } from '../../shared/components/radio-group/radio-group.component';
 import { RadioItemComponent } from '../../shared/components/radio-group/radio-item/radio-item.component';
 import { RequestService } from '../../shared/services/request/request.service';

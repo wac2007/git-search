@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
 import { UserRepoItemComponent } from '../user-repo-item.component';
-import { InfoIconComponent } from '../../info-icon/info-icon.component';
+import { InfoIconComponent } from '../../../shared/components/info-icon/info-icon.component';
 
 import {
   REPO_MOCK, TITLE_SELECTOR, STARS_SELECTOR, WATCHERS_SELECTOR, EXTERNAL_LINK_SELECTOR,

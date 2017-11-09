@@ -5,7 +5,7 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
 import { UserReposComponent } from '../user-repos.component';
 import { REPOS_MOCK, REPO_ITEM_SELECTOR } from './user-repos.test-options';
 import { UserRepoItemComponent } from '../../user-repo-item/user-repo-item.component';
-import { InfoIconComponent } from '../../info-icon/info-icon.component';
+import { InfoIconComponent } from '../../../shared/components/info-icon/info-icon.component';
 
 
 describe('UserReposComponent', () => {
