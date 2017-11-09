@@ -9,16 +9,7 @@ import {
 
 
 describe('UrlService', () => {
-  let urlService;
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [UrlService]
-    });
-  });
-
-  beforeEach(inject([UrlService], (service: UrlService) => {
-    urlService = service;
-  }));
+  const urlService = new UrlService();
 
   it('should be created', () => {
     expect(urlService).toBeTruthy();

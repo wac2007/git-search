@@ -8,7 +8,7 @@ import { RepoViewComponent } from '../repo-view.component';
 import { RepoViewService } from '../repo-view-service/repo-view.service';
 import { COMPONENTS_SELECTORS, repoMock } from './repo-view.test-options';
 import { RepoInfoComponent } from '../repo-info/repo-info.component';
-
+import { RequestService } from '../../shared/services/request/request.service';
 
 
 describe('RepoViewComponent', () => {
@@ -30,6 +30,7 @@ describe('RepoViewComponent', () => {
       ],
       providers: [
         RepoViewService,
+        RequestService,
       ]
     })
     .compileComponents();

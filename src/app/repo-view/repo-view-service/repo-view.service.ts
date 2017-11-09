@@ -1,26 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
+import { RequestService } from '../../shared/services/request/request.service';
+
+
 @Injectable()
 export class RepoViewService {
   constructor(
     private http: Http,
+    private request: RequestService
   ) { }
 
   getRepoData(repoName) {
-    return this.http
-      .get(this.getRepoUrl(repoName))
+    return this.request
+      .get(this.getRepoUri(repoName))
       .map(res => res.json());
   }
 
   getRepoReadme(repoName) {
-    return this.http
-      .get(this.getRepoReadmeUrl(repoName))
+    return this.request
+      .get('', null, this.getRepoReadmeUrl(repoName))
       .map(res => res.text());
   }
 
-  private getRepoUrl(repoName) {
-    return `https://api.github.com/repos/${repoName}`;
+  private getRepoUri(repoName) {
+    return `/repos/${repoName}`;
   }
 
   private getRepoReadmeUrl(repoName) {

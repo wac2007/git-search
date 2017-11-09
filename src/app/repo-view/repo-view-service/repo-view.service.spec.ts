@@ -4,7 +4,7 @@ import { MockBackend } from '@angular/http/testing';
 
 import { RepoViewService } from './repo-view.service';
 import { REPO_NAME, REPO_MOCK } from './repo-view-service.test-options';
-
+import { RequestService } from '../../shared/services/request/request.service';
 
 
 describe('RepoViewService', () => {
@@ -15,6 +15,7 @@ describe('RepoViewService', () => {
       ],
       providers: [
         RepoViewService,
+        RequestService,
         { provide: XHRBackend, useClass: MockBackend },
       ],
     });

@@ -11,8 +11,9 @@ export class UrlService {
     return uri.startsWith('/') ? uri : `/${uri}`;
   }
 
-  public joinUri(url: String, uri: String) {
+  public joinUri(url: String, uri?: String) {
     const newUrl = this.removeEndSlash(url);
+    if (!uri) { return newUrl; }
     const newUri = this.removeEndSlash(this.addStartSlash(uri));
     return `${newUrl}${newUri}`;
   }

@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { LoadingComponent } from './components/loading/loading.component';
 import { RadioGroupComponent } from './components/radio-group/radio-group.component';
 import { RadioItemComponent } from './components/radio-group/radio-item/radio-item.component';
+import { RequestService } from './services/request/request.service';
 
 
 @NgModule({
@@ -21,6 +22,9 @@ import { RadioItemComponent } from './components/radio-group/radio-item/radio-it
     LoadingComponent,
     RadioGroupComponent,
     RadioItemComponent,
+  ],
+  providers: [
+    RequestService
   ]
 })
 export class SharedModule { }
