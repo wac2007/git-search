@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { UserSearchModule } from './user-search/user-search.module';
 import { UserViewModule } from './user-view/user-view.module';
 import { RepoViewModule } from './repo-view/repo-view.module';
-import { HeaderComponent } from './header/header.component';
 import { SharedModule } from './shared/shared.module';
 
 
@@ -21,7 +20,6 @@ import { SharedModule } from './shared/shared.module';
   ],
   declarations: [
     AppComponent,
-    HeaderComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
