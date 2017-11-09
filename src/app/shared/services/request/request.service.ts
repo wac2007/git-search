@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 import { environment } from '../../../../environments/environment';
 import { UrlService } from '../url/url.service';
@@ -24,9 +24,14 @@ export class RequestService {
     return environment.API_URL;
   }
 
-  get(uri: String, queryString?: Object, url?: String) {
+  get(uri: String, queryString?: Object, url?: String, options?: Object) {
     return this.http
-      .get(this.buildUrl(uri, queryString, url));
+      .get(this.buildUrl(uri, queryString, url), this.getHttpOptions());
+  }
+
+  private getHttpOptions() {
+    const headers = new Headers({ 'Authorization': `token ${environment.githubToken}` });
+    return new RequestOptions({ headers });
   }
 
 }
