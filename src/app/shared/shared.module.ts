@@ -8,6 +8,7 @@ import { RadioGroupComponent } from './components/radio-group/radio-group.compon
 import { RadioItemComponent } from './components/radio-group/radio-item/radio-item.component';
 import { RequestService } from './services/request/request.service';
 import { HeaderComponent } from './components/header/header.component';
+import { InfoIconComponent } from './components/info-icon/info-icon.component';
 
 
 @NgModule({
@@ -18,12 +19,14 @@ import { HeaderComponent } from './components/header/header.component';
   ],
   declarations: [
     HeaderComponent,
+    InfoIconComponent,
     LoadingComponent,
     RadioGroupComponent,
     RadioItemComponent
   ],
   exports: [
     HeaderComponent,
+    InfoIconComponent,
     LoadingComponent,
     RadioGroupComponent,
     RadioItemComponent,
