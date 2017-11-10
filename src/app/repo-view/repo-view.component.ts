@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
 
 import { RepoViewService } from './repo-view-service/repo-view.service';
-import { Repo } from '../types/repo';
+import { Repo } from '../shared/domains/repo';
 
 
 @Component({

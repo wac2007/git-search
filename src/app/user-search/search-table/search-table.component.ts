@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { User } from '../../types/user';
+import { User } from '../../shared/domains/user';
 
 
 @Component({

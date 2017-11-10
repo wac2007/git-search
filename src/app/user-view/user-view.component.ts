@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { UserViewService } from './user-view-service/user-view.service';
-import { Repo } from '../types/repo';
-import { User } from '../types/user';
+import { Repo } from '../shared/domains/repo';
+import { User } from '../shared/domains/user';
 import { ORDER_DESC, SORT_BY_STARS } from './order.constants';
 import { OrderFilter } from './order-filter';
 

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Repo } from '../../types/repo';
+import { Repo } from '../../shared/domains/repo';
 
 
 @Component({
