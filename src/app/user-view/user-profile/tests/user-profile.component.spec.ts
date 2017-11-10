@@ -33,20 +33,39 @@ describe('UserProfileComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should have listed fields', () => {
-    const fields = [
-      USERNAME_SELECTOR,
-      USER_PROFILE_LINK_SELECTOR,
-      FOLLOWERS_SELECTOR,
-      FOLLOWING_SELECTOR,
-      EMAIL_SELECTOR,
-      BIO_SELECTOR,
-      AVATAR_SELECTOR
-    ];
+  it('should be created', () => {
+    expect(component).toBeTruthy();
+  });
 
-    fields.forEach((field) => {
-      const selector = fixture.nativeElement.querySelector(field);
-      expect(selector).toBeTruthy();
+  describe('UserProfileComponent: Basic Render', () => {
+    it('should render username', () => {
+      const htmlElement = fixture.nativeElement.querySelector(USERNAME_SELECTOR);
+      expect(htmlElement).toBeTruthy();
+    });
+    it('should render link', () => {
+      const htmlElement = fixture.nativeElement.querySelector(USER_PROFILE_LINK_SELECTOR);
+      expect(htmlElement).toBeTruthy();
+    });
+    it('should render info followers', () => {
+      const htmlElement = fixture.nativeElement.querySelector(FOLLOWERS_SELECTOR);
+      expect(htmlElement).toBeTruthy();
+    });
+    it('should render following', () => {
+      const htmlElement = fixture.nativeElement.querySelector(FOLLOWING_SELECTOR);
+      expect(htmlElement).toBeTruthy();
+    });
+    it('should render user email', () => {
+      const htmlElement = fixture.nativeElement.querySelector(EMAIL_SELECTOR);
+      expect(htmlElement).toBeTruthy();
+    });
+    it('should render bio description', () => {
+      const htmlElement = fixture.nativeElement.querySelector(BIO_SELECTOR);
+      expect(htmlElement).toBeTruthy();
+    });
+    it('should render image avatar', () => {
+      const htmlElement = fixture.nativeElement.querySelector(AVATAR_SELECTOR);
+      expect(htmlElement).toBeTruthy();
     });
   });
+
 });
